@@ -4,12 +4,13 @@ import React,{ useState } from "react"
 const useForm = () => {
 
 
-    const [form,setFormData]=useState({completedBy:"",reconciledBy:"",transcribedBy:"",dateCompleted:"",timeCompleted:"",medReviewRequired:"",medReviewComments:"",
-    hasAllergy:"", allergies:"",hasRegMeds:"",regMeds:"",hasAcuteMeds:"",acuteMeds:"" })
-    const {completedBy,reconciledBy,transcribedBy,dateCompleted,timeCompleted,medReviewRequired,medReviewComments,hasAllergy,allergies,
-        hasRegMeds,regMeds,hasAcuteMeds,acuteMeds 
-    
-    }=form
+    const [form,setFormData]=useState({
+        
+        completedBy:"",reconciledBy:"",transcribedBy:"",dateCompleted:"",timeCompleted:"",
+        medReviewRequired:"",medReviewComments:"",  
+        hasAllergy:"", allergies:"",hasRegMeds:"",regMeds:"",hasAcuteMeds:"",acuteMeds:"",hasOtcMeds:"",otcMeds:"",
+        smokes:"",cigNum:"",smokingAdvice:"",smokingAdviceComments:"",nrtConsent:"",preferredNrt:""  })
+
     const  handleChange=(e)=> {
       const {name, value, type, checked} = e.target
       setFormData(prev => ({
@@ -21,8 +22,7 @@ const useForm = () => {
       
 
   }
-  return { form,completedBy,reconciledBy,transcribedBy,dateCompleted,timeCompleted,medReviewRequired,medReviewComments,
-    hasAllergy,allergies,hasRegMeds,regMeds,hasAcuteMeds,acuteMeds 
+  return { form
     ,handleChange}
 }
 

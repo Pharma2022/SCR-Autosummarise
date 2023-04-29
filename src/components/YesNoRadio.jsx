@@ -12,7 +12,7 @@ const RadioLabel=({label,children})=>(
 
 
 
-const YesNoRadio = ({label,value,name,no,children}) => {
+const YesNoRadio = ({label,value,name,yes,no,children}) => {
     const {handleChange}=useFormContext()
 
 
@@ -21,14 +21,14 @@ const YesNoRadio = ({label,value,name,no,children}) => {
     <Fragment>
    <RadioLabel label={label}>
 
-        <label >Yes
-        <input    type="radio" name={name} value={true} onChange={handleChange} checked={value!==""}  />
+        <label >{yes? yes:"Yes"}
+        <input    type="radio" name={name} value={true} onChange={handleChange} checked={value}  />
         </label>
 
         
          <label >{no? no :"No"}
          
-         <input   type="radio" name={name} value="" onChange={handleChange} checked={value===""}  />
+         <input   type="radio" name={name} value={""} onChange={handleChange} checked={!value}  />
          </label>
       
 

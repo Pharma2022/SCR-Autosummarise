@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useFormContext } from '../context/formContext'
 
 const NumberInput = ({name,value,title}) => {
@@ -7,10 +7,10 @@ const NumberInput = ({name,value,title}) => {
     
     
       return (
-        <Fragment>
+        <div className='form-row flex-row'>
         <label htmlFor={name}>{title}</label>
         <input type='number' name={name} value={value} onChange={handleChange} />
-        </Fragment>
+        </div>
       )
     }
 

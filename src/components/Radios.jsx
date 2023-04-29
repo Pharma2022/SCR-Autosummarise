@@ -2,14 +2,24 @@ import React, { Fragment } from 'react'
 import { useFormContext } from '../context/formContext'
 import {nanoid} from 'nanoid'
 
-const RadioLabel=({label,children})=>(
-<div className='form-row flex-row' >
+const RadioLabel=({label,children,col})=>(
+<div className='form-row flex-col' >
     <span>{label}</span>
-    <span>{children}</span>
+    <span className={col?'flex-col':null}>{children}</span>
 </div>
 
 )
 
+const Radio=({name,title,value,property})=>{
+  const {handleChange}=useFormContext()
+  return(
+    
+    <label >{title}
+    <input    type="radio" name={name} value={value} onChange={handleChange} checked={property===value}  />
+    </label>
+
+  )
+}
 
 
 const YesNoRadio = ({label,value,name,yes,no,children}) => {
@@ -39,4 +49,4 @@ const YesNoRadio = ({label,value,name,yes,no,children}) => {
   )
 }
 
-export default YesNoRadio
+export {YesNoRadio,Radio,RadioLabel}

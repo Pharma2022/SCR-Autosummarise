@@ -59,6 +59,7 @@ button:focus-visible {
 .flex-col{
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 .flex-row{
   display: flex;
@@ -66,12 +67,13 @@ button:focus-visible {
 }
 .container{
   width: 100%;
-  gap:2em;
+
+  text-align: left;
   
 }
 .form-row{
-  gap:2em;
-  align-items: center;
+
+
 }
 
 
@@ -92,4 +94,13 @@ button:focus-visible {
 }
 .bold{
   font-weight: 700;
+}
+.red{
+  color: rgba(255, 0, 0, 0.737);
+}
+.left{
+  text-align: left;
+}
+.wrap{
+  flex-wrap: wrap;
 }

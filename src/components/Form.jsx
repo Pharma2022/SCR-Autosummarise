@@ -34,29 +34,29 @@ const Form = () => {
 
   return (
     <form className='container flex-col' onSubmit={handleSubmit} >
-         <TextInput name='completedBy'   value={completedBy}    title='Completed by'/>
-         <TextInput name='reconciledBy'  value={reconciledBy}   title='Reconciled by'/>
-         <TextInput name='transcribedBy' value={transcribedBy}  title='Transcribed by'/>
-         <Date      name='dateCompleted' value={dateCompleted}  title='Date Completed'/>
-         <Time      name='timeCompleted' value={timeCompleted}  title='Time Completed'/>   
+         <TextInput     name='completedBy'   value={completedBy}    title='Completed by'/>
+         <TextInput     name='reconciledBy'  value={reconciledBy}   title='Reconciled by'/>
+         <TextInput     name='transcribedBy' value={transcribedBy}  title='Transcribed by'/>
+         <Date          name='dateCompleted' value={dateCompleted}  title='Date Completed'/>
+         <Time          name='timeCompleted' value={timeCompleted}  title='Time Completed'/>   
          
-         <YesNoRadio   label={<p className='bold underline red'>Medical Team to Review</p>} value={medReviewRequired} 
-                      name='medReviewRequired'no=' Nothing'>
+         <YesNoRadio   label={<p className='bold underline red'>Medical Team to Review</p>} no=' Nothing'
+                        name='medReviewRequired' value={medReviewRequired}   >
               <TextArea name='medReviewComments' value={medReviewComments}/>
          </YesNoRadio>
          <p className='bold underline left'>Drug History </p>
-         <div className='form-row flex-row wrap'>
           <p className='bold underline'> Sources</p>
-  
-            <CheckBox  name='SCR'            value={SCR}          title={SCR} />
+         <div className='checkboxes  wrap'>
+            
+            <CheckBox  name='SCR'            value={SCR}          title='SCR' />
             {SCR&& 
             <Date      name='SCRupdated'     value={SCRupdated}   title='SCR last updated'/>}
             <CheckBox  name='patient'        value={patient}      title='Patient'/>
             <CheckBox  name='eTTA'           value={eTTA}         title='TTA'/>
             {eTTA&& 
             <Date      name='eTTADate'       value={eTTADate}     title='TTA Date'/>}
-            <CheckBox  name='pods'           value={pods}         title='pods'/>
-            <CheckBox  name='carer'          value={carer}        title='carer'/>
+            <CheckBox  name='pods'           value={pods}         title='PODS'/>
+            <CheckBox  name='carer'          value={carer}        title='Carer'/>
             <CheckBox  name='nursingHome'    value={nursingHome}  title='Nursing Home'/>
             <CheckBox  name='GP'             value={GP}           title='GP'/>
             <CheckBox  name='chemist'        value={chemist}      title='Community Pharmacy'/>
@@ -65,41 +65,37 @@ const Form = () => {
          </div>
 
          
-          <YesNoRadio label={<p className='bold underline'>Patient drug allergies/sensitivities and reactions</p>} 
-                value={hasAllergy} name='hasAllergy'no='NKDA'>
-              <TextArea name='allergies' value={allergies}/>
+          <YesNoRadio name='hasAllergy'     value={hasAllergy}    label={<p className='bold underline'>Patient drug allergies/sensitivities and reactions</p>} no='NKDA'  >
+            <TextArea name='allergies'      value={allergies}/>
           </YesNoRadio>
-        
-          <YesNoRadio  label={<p className='bold underline'>Regular Medicines </p>}
-                value={hasRegMeds} name='hasRegMeds'>
-               <TextArea  name='regMeds' value={regMeds}/>
+          <YesNoRadio name='hasRegMeds'     value={hasRegMeds}    label={<p className='bold underline'>Regular Medicines </p>} >
+            <TextArea name='regMeds'        value={regMeds}/>
           </YesNoRadio> 
-
-          <YesNoRadio   label={<p className='bold underline'>Acute Medicines </p>}
-                 value={hasAcuteMeds} name='hasAcuteMeds'>
-               <TextArea name='acuteMeds' value={acuteMeds}/>
+          <YesNoRadio name='hasAcuteMeds'   value={hasAcuteMeds}  label={<p className='bold underline'>Acute Medicines </p>} >
+            <TextArea name='acuteMeds'      value={acuteMeds}/>
           </YesNoRadio>
-      
-           <YesNoRadio  label={<p className='bold underline'>OTC Medicines</p>}
-                 value={hasOtcMeds} name='hasOtcMeds'>
-                <TextArea name='otcMeds' value={otcMeds}/>
+          <YesNoRadio name='hasOtcMeds'     value={hasOtcMeds}    label={<p className='bold underline'>OTC Medicines</p>} >
+            <TextArea name='otcMeds'        value={otcMeds}/>
           </YesNoRadio> 
-
-          <YesNoRadio   label={<p className='bold underline'>Smoking Status'</p>   } 
-                value={smokes} name='smokes'>
-                  <NumberInput title='Number of cigarettes smoked per day' name='cigNum' value={""||cigNum}/>
-                  <YesNoRadio label='Smoking cessation advice given'  name='smokingAdvice' value={smokingAdvice} >
-                        <TextArea name='smokingAdviceComments' value={smokingAdviceComments} placeholder={'Specify'}/>
-                  </YesNoRadio>
-                  <YesNoRadio label='Patient Consents to nicotine replacement therapy prescription' name='nrtConsent' value={nrtConsent} >
-                        <TextArea name='preferredNrt'value={preferredNrt}/>
-
-                  </YesNoRadio>
-                  <YesNoRadio label='Patient referred to smoking cessation service' name='smokingReferral' value={smokingReferral}>
+          <YesNoRadio name='smokes'         value={smokes}        label={<p className='bold underline'>Smoking Status'</p>} >
+            <NumberInput 
+                      name='cigNum'         value={""||cigNum}    title='Number of cigarettes smoked per day' />
+            <YesNoRadio 
+                      name='smokingAdvice'  value={smokingAdvice} label='Smoking cessation advice given' >
+              <TextArea 
+               name='smokingAdviceComments' value={smokingAdviceComments} placeholder={'Specify'}/>
+            </YesNoRadio>
+            <YesNoRadio 
+                      name='nrtConsent'     value={nrtConsent}    label='Patient Consents to nicotine replacement therapy prescription'>
+              <TextArea 
+                      name='preferredNrt'   value={preferredNrt}/>
+            </YesNoRadio>
+            <YesNoRadio 
+                     name='smokingReferral' value={smokingReferral} label='Patient referred to smoking cessation service'>
                       <a href='https://my.northmid.nhs.uk/tackling-tobacco-dependency' target='_blank' >
                         To refer to the smoking cessation service, please click here
                       </a>
-                  </YesNoRadio>
+            </YesNoRadio>
 
           </YesNoRadio>
 
@@ -107,27 +103,29 @@ const Form = () => {
                 <TextArea name='discrepancies' value={discrepancies} placeholder={'New:Changes:Stopped'}/>
           </Label>
 
-          <YesNoRadio label='Referral to Pharmacist /Pharmacy Technician' name='pharmReferral' value={pharmReferral}  no='N/A'>
+          <YesNoRadio     
+                      name='pharmReferral'  value={pharmReferral}  no='N/A'  label='Referral to Pharmacist /Pharmacy Technician'>
                 <TextArea name='pharmReferralComments' value={pharmReferralComments} placeholder={'Enter details'}/>
           </YesNoRadio>
 
-          <YesNoRadio label='NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete' name='hasSteroids' value={hasSteroids} 
-                       yes='History of steroid therapy' no='No Steroid Therapy'>
+          <YesNoRadio     
+                      name='hasSteroids'    value={hasSteroids}     yes='History of steroid therapy' no='No Steroid Therapy' 
+                          label='NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete'>
                 <p>If yes to any questions below, supply red steroid emergency card on discharge (add red steroid card prompt on TTA).
                   Refer to the bulletin and Adrenal Crisis Clinical Guideline for full criteria.</p>
                 <a href='https://my.northmid.nhs.uk/download.cfm?ver=9962%3E' target='_blank'>
                     Link to Adrenal Crisis guideline
                 </a>
-                <YesNoRadio label={<p>Was the patient prescribed long term or high dose <span className='underline'>oral</span> steroids before admission</p>}
-                    name='longTermHigh' value={longTermHigh}>
+                <YesNoRadio   label={<p>Was the patient prescribed long term or high dose <span className='underline'>oral</span> steroids before admission</p>}
+                     name='longTermHigh' value={longTermHigh}>
                       <TextArea name='longTermHighIndication' value={longTermHighIndication} placeholder={'State Indication'}/>
                 </YesNoRadio>
-                <YesNoRadio label={<p>Was the patient high dose <span className='underline'>Inhaled</span> steroids before admission</p>}
-                    name='hasIcs' value={hasIcs}>
+                <YesNoRadio   label={<p>Was the patient high dose <span className='underline'>Inhaled</span> steroids before admission</p>}
+                          name='hasIcs'      value={hasIcs}>
                       <TextArea name='ics' value={ics} placeholder={'Specify'}/>
                 </YesNoRadio>
                 <YesNoRadio label={<p>Was the patient prescribed <span className='underline'>emergency hydrocortisone injection</span>  before admission </p>}
-                    name='hasEmergencySteroids' value={hasEmergencySteroids}>
+                          name='hasEmergencySteroids' value={hasEmergencySteroids}>
                       <TextArea  name='emergencySteroids' value={emergencySteroids} placeholder={'Specify'}/>
                 </YesNoRadio>
           </YesNoRadio>
@@ -135,34 +133,31 @@ const Form = () => {
           <Fragment >
   
               <RadioLabel label={<p className='bold underline'>Pharmaceutical Needs Assessment</p>}>
-                <Radio name='isMca' title={'Medication compliance aid(e.g. dosette box)'} value='dosetteBox' property={isMca} />
-                <Radio name='isMca' title={'Original Boxes '} value='originalBoxes' property={isMca} />
-                <Radio name='isMca' title={'Both '} value='both' property={isMca} />
+                <Radio       name='isMca'                  value='dosetteBox'       title={'Medication compliance aid(e.g. dosette box)'} property={isMca} />
+                <Radio       name='isMca'                  value='originalBoxes'    title={'Original Boxes '}                             property={isMca} />
+                <Radio       name='isMca'                  value='both'             title={'Both '}                                       property={isMca} />
               </RadioLabel>
-              <YesNoRadio label={<p className='bold underline'>Does this patient meet the <span className='bold'>discharge medicines service(dms)</span> referral criteria?</p>}
-                name='isDms' value={isDms}  >
-                    <YesNoRadio  label={<p>If yes, complete all community pharmacy details including ODS code (obtainable from SCR).Has the patient given consent to send information to the nominated pharmacy?</p>}
-                    name='hasDmsConsent' value={hasDmsConsent}
-                    />
+              <YesNoRadio    name='isDms'                  value={isDms}            label={<p className='bold underline'>Does this patient meet the <span className='bold'>discharge medicines service(dms)</span> referral criteria?</p>} >
+                    <YesNoRadio 
+                             name='hasDmsConsent'          value={hasDmsConsent}    label={<p>If yes, complete all community pharmacy details including ODS code (obtainable from SCR).Has the patient given consent to send information to the nominated pharmacy?</p>}       />
 
               </YesNoRadio>
           
-              <YesNoRadio   label={<p>Dosette box patient</p>}  
-                                 name='isDosette' value={isDosette}>
-                      <TextInput name='chemistName'     value={chemistName}     title='Community pharmacy name'/>
-                      <TextInput name='chemistNo'       value={chemistNo}       title='Contact number'/>
-                      <TextInput name='odsCode'         value={odsCode}         title='ODS Code'/>
-                      <TextInput name='nhsMail'         value={nhsMail}         title='NHS Email'/>
-                      <Date      name='lastSupplyDate'  value={lastSupplyDate}  title='Date of last supply'/>
+              <YesNoRadio    name='isDosette'              value={isDosette}           label={<p>Dosette box patient</p>}  >
+                  <TextInput name='chemistName'            value={chemistName}         title='Community pharmacy name'/>
+                  <TextInput name='chemistNo'              value={chemistNo}           title='Contact number'/>
+                  <TextInput name='odsCode'                value={odsCode}             title='ODS Code'/>
+                  <TextInput name='nhsMail'                value={nhsMail}             title='NHS Email'/>
+                  <Date      name='lastSupplyDate'         value={lastSupplyDate}      title='Date of last supply'/>
               </YesNoRadio>
-              <YesNoRadio label={<p>Communication concerns (e.g.visual/hearing/language)</p>} name='commsIssues' value={commsIssues}>
-                      <TextArea name='commsIssuesComments' value={commsIssuesComments} placeholder='Specify'/>
+              <YesNoRadio    name='commsIssues'            value={commsIssues}         label={<p>Communication concerns (e.g.visual/hearing/language)</p>} >
+                  <TextArea  name='commsIssuesComments'    value={commsIssuesComments} placeholder='Specify'/>
               </YesNoRadio>
-              <YesNoRadio label={<p>Counselling required</p>} name='counsellingReq' value={counsellingReq}>
-                      <TextArea name='counsellingReqComments' value={counsellingReqComments} placeholder='Specify'/>
+              <YesNoRadio    name='counsellingReq'         value={counsellingReq}      label={<p>Counselling required</p>}>
+                 <TextArea   name='counsellingReqComments' value={counsellingReqComments} placeholder='Specify'/>
               </YesNoRadio>
-              <YesNoRadio label={<p>Compliance issues</p>} name='compliance' value={compliance}>
-                      <TextArea name='complianceComments' value={complianceComments} placeholder='Specify'/>
+              <YesNoRadio    name='compliance'             value={compliance}          label={<p>Compliance issues</p>}>
+                  <TextArea  name='complianceComments'     value={complianceComments}  placeholder='Specify'/>
               </YesNoRadio>
               {commsIssues&&
               <Fragment>
@@ -173,7 +168,7 @@ const Form = () => {
                   Bigword access code: ***
                 </p>
                 </Fragment>}
-              <YesNoRadio label={<p className='bold underline'>Anticoagulation</p>} name='hasWarfarin' value={hasWarfarin}>
+              <YesNoRadio        name='hasWarfarin'             value={hasWarfarin}                label={<p className='bold underline'>Anticoagulation</p>}>
                       <TextInput name='warfarinIndication'      value={warfarinIndication}         title='Indication' />
                       <TextInput name='warfarinRange'           value={warfarinRange}              title='Target Range' />
                       <TextInput name='warfarinDose'            value={warfarinDose}               title='Dose' />
@@ -187,14 +182,14 @@ const Form = () => {
               </YesNoRadio>
 
 
-              <YesNoRadio label={<p className='bold underline'>Methadone/Buprenorphine</p>} name={'hasOpioidReplacement'} value={hasOpioidReplacement}>
+              <YesNoRadio         name='hasOpioidReplacement'   value={hasOpioidReplacement}      label={<p className='bold underline'>Methadone/Buprenorphine</p>}>
                       <RadioLabel label={<p >If normally on methadone/buprenorphine please provide the following details</p>}>
-                        <Radio    name='opioid' title={'Methadone'} value='methadone' property={opioid} />
-                        <Radio    name='opioid' title={'Buprenorphine'} value='buprenorphine' property={opioid} />
+                        <Radio    name='opioid'                 value='methadone'                 title={'Methadone'}     property={opioid} />
+                        <Radio    name='opioid'                 value='buprenorphine'             title={'Buprenorphine'} property={opioid} />
                       </RadioLabel>
                       <TextInput  name='opioidDose'             value={opioidDose}                title={'Dose'}/>
                       {opioid&& 
-                      <Date       name='opioidDose'             value={lastOpioidSupply}          title={`last supply of ${opioid}`}/>}
+                      <Date       name='lastOpioidSupply'       value={lastOpioidSupply}          title={`last supply of ${opioid}`}/>}
                       <TextInput  name='opioidChemistNameAndNo' value={opioidChemistNameAndNo}    title={'Dose'}/>
                       <TextInput  name='dals'                   value={dals}                      title={'Details of drug advisory service'}/>
                       <TextInput  name='dalsContactNo'          value={dalsContactNo}             title={'Contact No (Grove/Enable/other)'}/>
@@ -203,12 +198,12 @@ const Form = () => {
               </YesNoRadio>
               
               <RadioLabel label={<p className='bold underline left '>Medicines for discharge</p>} col={true}>
-                      <Radio    name='medsSupply' title={'Has own supply at home, supply new and changed medicines only'} value='ownSupply' property={medsSupply} />
-                      <Radio    name='medsSupply' title={'Has own supply at home but needs the following medicines only (please list)'} value='topUp' property={medsSupply} />
+                      <Radio      name='medsSupply'             value='ownSupply' property={medsSupply} title={'Has own supply at home, supply new and changed medicines only'}   />
+                      <Radio      name='medsSupply'             value='topUp'     property={medsSupply} title={'Has own supply at home but needs the following medicines only (please list)'}   />
                       {medsSupply==='topUp'&&
-                      <TextInput name='topUpMeds' value={topUpMeds} placeholder='Specify'/>
+                      <TextInput  name='topUpMeds'              value={topUpMeds} placeholder='Specify'/>     
                       }
-                      <Radio    name='medsSupply' title={'Supply all medicines'} value='supplyAll' property={medsSupply} />
+                      <Radio      name='medsSupply'             value='supplyAll'  property={medsSupply} title={'Supply all medicines'}    />
             
               </RadioLabel>
               
@@ -219,7 +214,7 @@ const Form = () => {
 
 
        
-         <button>Submit</button>
+         <button className='button'>Submit</button>
 
 
     </form>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useFormContext } from '../context/formContext'
+import { useFormContext } from '../../context/formContext'
 
 const CheckBox = ({title,value,name}) => {
     const {handleChange}=useFormContext()

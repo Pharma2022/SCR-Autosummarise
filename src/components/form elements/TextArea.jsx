@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { useFormContext } from '../context/formContext'
+import { useFormContext } from '../../context/formContext'
 
 const TextArea = ({value,name,placeholder}) => {
     const {handleChange}=useFormContext()

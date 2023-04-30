@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
 import '../index.css'
 import { useFormContext } from '../context/formContext'
-import TextInput from './TextInput'
-import Date from './Date'
-import Time from './Time'
-import {YesNoRadio,Radio,RadioLabel} from './Radios'
-import TextArea from './TextArea'
-import NumberInput from './NumberInput'
-import Label from './Label'
-import CheckBox from './CheckBox'
+import TextInput from './form elements/TextInput'
+import Date from './form elements/Date'
+import Time from './form elements/Time'
+import {YesNoRadio,Radio,RadioLabel} from './form elements/Radios'
+import TextArea from './form elements/TextArea'
+import NumberInput from './form elements/NumberInput'
+import Label from './form elements/Label'
+import CheckBox from './form elements/CheckBox'
 
 
 const Form = () => {
@@ -34,6 +34,7 @@ const Form = () => {
 
   return (
     <form className='container flex-col' onSubmit={handleSubmit} >
+      
          <TextInput     name='completedBy'   value={completedBy}    title='Completed by'/>
          <TextInput     name='reconciledBy'  value={reconciledBy}   title='Reconciled by'/>
          <TextInput     name='transcribedBy' value={transcribedBy}  title='Transcribed by'/>

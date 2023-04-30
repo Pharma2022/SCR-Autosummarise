@@ -1,5 +1,5 @@
 import React,{Fragment} from 'react'
-import { useFormContext } from '../context/formContext'
+import { useFormContext } from '../../context/formContext'
 
 
 const TextInput = ({name,value,title}) => {

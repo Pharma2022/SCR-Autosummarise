@@ -1,4 +1,6 @@
 import React,{ useState,useEffect } from "react"
+import { sortMeds } from "../helper"
+import { nanoid } from "nanoid"
 
 
 const useForm = () => {
@@ -34,11 +36,34 @@ const useForm = () => {
         hasOpioidReplacement,opioid,opioidDose,lastOpioidSupply,opioidChemistNameAndNo,dals,dalsContactNo,keyWorkerName,
         medsSupply,topUpMeds,
         
-            }=form
-            const updateForm=(element)=>setFormData(prev=>({...prev,element:""}))
+    }=form
+    
+    
+        const [renderedRegMeds,setRenderedRegMeds]= useState(regMeds)
+        
+        const [renderedAcuteMeds,setRenderedAcuteMeds]= useState(acuteMeds)
+
+     const sortRegMeds=()=>{
+         setRenderedRegMeds(sortMeds(regMeds))
+         console.log(renderedRegMeds)
+    }
+     
+     const sortAcuteMeds=()=>{
+        setRenderedAcuteMeds(sortMeds(acuteMeds))    
+        console.log(renderedAcuteMeds)
+    
+    }       
+
     useEffect(()=>{
-        updateForm(SCRupdated)
- 
+        setRenderedRegMeds(regMeds)
+    },[regMeds])
+    
+    useEffect(()=>{
+        setRenderedAcuteMeds(acuteMeds)
+    },[acuteMeds])
+
+    useEffect(()=>{
+     setFormData(prev=>({...prev,SCRupdated:""}))   
     },[SCR])
     useEffect(()=>{
         setFormData(prev=>({...prev,eTTADate:""}))   
@@ -68,8 +93,8 @@ const useForm = () => {
       
 
   }
-  return { form
-    ,handleChange}
+  return { form,sortAcuteMeds,sortRegMeds
+    ,handleChange,renderedAcuteMeds,renderedRegMeds}
 }
 
 export default useForm

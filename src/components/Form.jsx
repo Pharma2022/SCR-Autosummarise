@@ -12,7 +12,7 @@ import CheckBox from './form elements/CheckBox'
 
 
 const Form = () => {
-    const { form }=useFormContext()
+    const { form,sortAcuteMeds,sortRegMeds }=useFormContext()
         const {
           completedBy,reconciledBy,transcribedBy,dateCompleted,timeCompleted,medReviewRequired,medReviewComments,
           SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist, 
@@ -71,9 +71,11 @@ const Form = () => {
           </YesNoRadio>
           <YesNoRadio name='hasRegMeds'     value={hasRegMeds}    label={<p className='bold underline'>Regular Medicines </p>} >
             <TextArea name='regMeds'        value={regMeds}/>
+            {regMeds&& <button type='button' className='button' onClick={()=>sortRegMeds()}>Sort</button>}
           </YesNoRadio> 
           <YesNoRadio name='hasAcuteMeds'   value={hasAcuteMeds}  label={<p className='bold underline'>Acute Medicines </p>} >
             <TextArea name='acuteMeds'      value={acuteMeds}/>
+            {acuteMeds&& <button type='button'className='button' onClick={()=>sortAcuteMeds()}>Sort</button>}
           </YesNoRadio>
           <YesNoRadio name='hasOtcMeds'     value={hasOtcMeds}    label={<p className='bold underline'>OTC Medicines</p>} >
             <TextArea name='otcMeds'        value={otcMeds}/>

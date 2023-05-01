@@ -1,4 +1,7 @@
-function splitMedications(str) {
+import React from "react";
+import { nanoid, } from "nanoid";
+
+export function sortMeds(str) {
     const medsArr = [];
     const medsStrArr = str.split(/\n(?=Repeat Medication)/);
     for (let i = 0; i < medsStrArr.length; i++) {
@@ -26,7 +29,8 @@ function splitMedications(str) {
     // sort the medications array by name
     medsArr.sort((a, b) => a.name.localeCompare(b.name));
     
-    return medsArr;
+    return   <ul className="container flex-col">
+    {medsArr.map(({name,instructions,quantity})=>(<li key={nanoid()}>{name} {instructions} {quantity} </li>))}    </ul>
   }
   
 

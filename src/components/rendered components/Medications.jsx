@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormContext } from '../../context/formContext'
 
 const Medications = () => {
-    const {form:{ hasAllergy,allergies,hasRegMeds,regMeds,hasAcuteMeds,acuteMeds,hasOtcMeds,otcMeds},renderedAcuteMeds,renderedRegMeds
+    const {form:{ hasAllergy,allergies,hasRegMeds,hasAcuteMeds,hasOtcMeds,otcMeds},renderedAcuteMeds,renderedRegMeds
 
 }=useFormContext()
 

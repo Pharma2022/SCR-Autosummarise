@@ -41,7 +41,9 @@ export function sortMeds(str) {
     const year = date.getFullYear();
     const daySuffix = getDaySuffix(day);
   
-    return `${day}${daySuffix} ${month} ${year}`;
+
+
+    return isNaN(day) ?null: `${day}${daySuffix} ${month} ${year}`;
   }
   
   function getDaySuffix(day) {

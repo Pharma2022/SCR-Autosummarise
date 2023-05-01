@@ -24,7 +24,7 @@ const Form = () => {
           commsIssues,commsIssuesComments, counsellingReq,counsellingReqComments,compliance,complianceComments, 
           hasWarfarin,warfarinIndication,warfarinRange,warfarinDose,warfarinDuration,warfarinLastAppt,warfarinINR,warfarinClinic,warfarinClinicContactNo,warfarinClinicEmail,warfarinNextAppt,
           hasOpioidReplacement,opioid,opioidDose,lastOpioidSupply,opioidChemistNameAndNo,dals,dalsContactNo,keyWorkerName,
-          medsSupply,topUpMeds,
+          medsSupply,topUpMeds,dischargePlan,dischargeDestination
           
               }=form
     const handleSubmit=(e)=>{
@@ -208,6 +208,17 @@ const Form = () => {
                       }
                       <Radio      name='medsSupply'             value='supplyAll'  property={medsSupply} title={'Supply all medicines'}    />
             
+              </RadioLabel>
+
+              <RadioLabel label={<p>Discharge Plan </p>}>
+                      <Radio      name='dischargePlan'          value='ownHome'         property={dischargePlan} title={'Own Home'}   />
+                      <Radio      name='dischargePlan'          value='nursingHome'     property={dischargePlan} title={'Nursing Home'}   />
+                      
+                      <Radio      name='dischargePlan'          value='notKnown'        property={dischargePlan} title={'Not known on Admission'}    />
+                      <Radio      name='dischargePlan'          value='other'           property={dischargePlan} title={'Other Please Specify'}    />
+                      {dischargePlan==='other'&&
+                      <TextInput  name='dischargeDestination'   value={dischargeDestination} title={'Destination: '} />}
+
               </RadioLabel>
               
 

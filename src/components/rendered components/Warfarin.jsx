@@ -7,8 +7,8 @@ const Warfarin = () => {
         ,warfarinINR,warfarinClinic,warfarinClinicContactNo,warfarinClinicEmail,warfarinNextAppt}}=useFormContext()
 
   return (
-    <div className='container flex-col'>
-     <p>Anticoagulation:{hasWarfarin?"Yes":"Nil"}</p>
+    <div>
+     <p className='bold underline'>Anticoagulation:{hasWarfarin?"Yes":"Nil"}</p>
      {hasWarfarin&&
      <Fragment>
      <p>Indication: {warfarinIndication}</p>

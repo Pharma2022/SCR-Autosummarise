@@ -7,11 +7,15 @@ const Medications = () => {
 }=useFormContext()
 
   return (
-    <div className='container flex-col'>
+    <div>
+        <p className='bold underline'>Allergies:</p>
         <p>Allergies: {hasAllergy? allergies:"NKDA"}</p>
-        <p>Regular Mediation {hasRegMeds?         renderedRegMeds:'Nil' }</p>
-        <p>Acute Medication  {hasAcuteMeds?     renderedAcuteMeds:'Nil' }</p>
-        <p>OTC Medication    {hasOtcMeds?         otcMeds:'Nil'}</p>
+        <p className='bold underline'>Regular Mediation</p> 
+        <p>{hasRegMeds?         renderedRegMeds:'Nil' }</p>
+        <p className='bold underline'>Acute Medication</p>  
+        <p>{hasAcuteMeds?     renderedAcuteMeds:'Nil' }</p>
+        <p className='bold underline'>OTC Medication</p>    
+        <p>{hasOtcMeds?         otcMeds:'Nil'}</p>
   
     </div>
   )

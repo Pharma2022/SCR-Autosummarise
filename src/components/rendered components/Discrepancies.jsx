@@ -5,13 +5,13 @@ const Discrepancies = () => {
 const {form:{  discrepancies,pharmReferral,pharmReferralComments,}}= useFormContext()
 
   return (
-    <div className='container flex-col'>
-        {discrepancies?
+    <div >
+        {
         <Fragment>
         <p className='bold underline'>List of Discrepancies:</p>
-        <p>{discrepancies}
-        </p>
-        </Fragment> :<p className='bold underline'>Medications charted correctly</p>
+      {discrepancies?  <p>{discrepancies}
+        </p> :'Nil'}
+        </Fragment> 
         
         }
         { <Fragment>

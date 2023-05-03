@@ -107,13 +107,13 @@ const Form = () => {
           </Label>
 
           <YesNoRadio     
-                      name='pharmReferral'  value={pharmReferral}  no='N/A'  label='Referral to Pharmacist /Pharmacy Technician'>
+                      name='pharmReferral' value={pharmReferral}  no='N/A' label={<p className='bold underline'>Referral to Pharmacist /Pharmacy Technician</p>}>
                 <TextArea name='pharmReferralComments' value={pharmReferralComments} placeholder={'Enter details'}/>
           </YesNoRadio>
 
           <YesNoRadio     
                       name='hasSteroids'    value={hasSteroids}     yes='History of steroid therapy' no='No Steroid Therapy' 
-                          label='NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete'>
+                      label={<p className='bold underline'>'NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete</p>}>
                 <p>If yes to any questions below, supply red steroid emergency card on discharge (add red steroid card prompt on TTA).
                   Refer to the bulletin and Adrenal Crisis Clinical Guideline for full criteria.</p>
                 <a href='https://my.northmid.nhs.uk/download.cfm?ver=9962%3E' target='_blank'>

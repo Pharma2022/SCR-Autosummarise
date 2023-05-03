@@ -6,7 +6,7 @@ const CompletedBy = () => {
 
 const {form:{completedBy,reconciledBy,transcribedBy,dateCompleted,timeCompleted,medReviewRequired,medReviewComments}}=useFormContext()
   return (
-    <div className='container flex-col'>
+    <div>
           <p>Completed by {completedBy}</p>
           <p>Reconciled by {reconciledBy}</p>
           <p>Transcribed by {transcribedBy}</p>

@@ -7,7 +7,7 @@ const {form:{smokes,cigNum,smokingAdvice,smokingAdviceComments,nrtConsent,prefer
 
 
   return (
-    <div className='container flex-col'>
+    <div>
         <p className='bold underline'>Smoking Status</p>  
         {<p>Smoker? {smokes? "Yes":"No"}</p>}
         {smokes &&

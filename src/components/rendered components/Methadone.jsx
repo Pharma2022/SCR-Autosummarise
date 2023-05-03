@@ -6,8 +6,8 @@ const Methadone = () => {
 
     const {form:{ hasOpioidReplacement,opioid,opioidDose,lastOpioidSupply,opioidChemistNameAndNo,dals,dalsContactNo,keyWorkerName,}}=useFormContext()
   return (
-    <div className='container flex-col'>
-        <p className='bold underline'>Methadone/Buprenorphine : {hasOpioidReplacement? opioid :"Nil"}</p>
+    <div>
+        <p className='bold underline'>Methadone/Buprenorphine: {hasOpioidReplacement? opioid :"Nil"}</p>
         {hasOpioidReplacement&&
         <Fragment>
         <p>Dose: {opioidDose}</p>

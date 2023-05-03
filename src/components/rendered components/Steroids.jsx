@@ -5,8 +5,8 @@ const Steroids = () => {
 
     const {form:{hasSteroids,longTermHigh,longTermHighIndication,hasIcs,ics,hasEmergencySteroids,emergencySteroids,}}=useFormContext()
   return (
-    <div className='container flex-col'>
-        <p>NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete</p>
+    <div>
+        <p className='bold underline'>NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete</p>
         <p>{hasSteroids? "History of Steroid Therapy": "No Steroid Therapy"} </p>
         {hasSteroids&& 
         <Fragment>

@@ -7,7 +7,7 @@ const PharmaceuticalNeeds = () => {
         commsIssues,commsIssuesComments, counsellingReq,counsellingReqComments,compliance,complianceComments, 
     }}=useFormContext()
   return (
-    <div className='container flex-col'>
+    <div>
         <p className='bold underline '>Pharmaceutical Needs Assessment</p>
         <p>{isMca==='originalBoxes'? "Original boxes": isMca==="dosetteBox"? "Dosette box": isMca==='both' && "Original boxes AND Dosette box"}</p>
         <p>Does this patient meet the discharge medicines service(dms) referral criteria? {isDms? "Yes":"No"}</p>

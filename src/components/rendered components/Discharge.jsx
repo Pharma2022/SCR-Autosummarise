@@ -3,12 +3,13 @@ import { useFormContext } from '../../context/formContext'
 
 const Discharge = () => {
 
-const {form:{medsSupply,topUpMeds,dischargePlan,dischargeDestination}}=useFormContext()
+const {form}=useFormContext()
+const {medsSupply,topUpMeds,dischargePlan,dischargeDestination}=form
 
   return (
     <Fragment>
 
-        <p className='container '>
+        <p  className='bold underline'>
             
             Medications for discharge:
             {medsSupply==='ownSupply'? 'Has own supply at home, supply new and changed medicines only'
@@ -20,9 +21,9 @@ const {form:{medsSupply,topUpMeds,dischargePlan,dischargeDestination}}=useFormCo
 
             </p >
 
-        <p className='container'>Discharge plan </p>
+        <p className='bold underline'>Discharge plan </p>
 
-        <p className='container'>Expected to be discharged to:
+        <p className='bold underline'>Expected to be discharged to:
         {dischargePlan==='nursingHome'?' Nursing Home'
         :dischargePlan==='notKnown'?' Not known on admission'
         :dischargePlan==='other'?  dischargeDestination

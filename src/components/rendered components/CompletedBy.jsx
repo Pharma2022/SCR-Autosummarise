@@ -11,7 +11,7 @@ const {form:{completedBy,reconciledBy,transcribedBy,dateCompleted,timeCompleted,
           <p>Reconciled by {reconciledBy}</p>
           <p>Transcribed by {transcribedBy}</p>
           <p>Completed at {dateCompleted&& formatDate(dateCompleted)} {timeCompleted}</p>
-          <p className='bold under'> Medication review required {medReviewRequired?"Yes":"No" }</p>
+          <p className='bold underline red'> Medication review required {medReviewRequired?"Yes":"No" }</p>
           <p> {medReviewRequired&& medReviewComments}   </p>
 
 

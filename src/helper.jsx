@@ -1,7 +1,7 @@
 import React from "react";
 import { nanoid, } from "nanoid";
 
-export function sortMeds(str) {
+export function sortRepeats(str) {
     const medsArr = [];
     const medsStrArr = str.split(/\n(?=Repeat Medication)/);
     for (let i = 0; i < medsStrArr.length; i++) {
@@ -29,10 +29,33 @@ export function sortMeds(str) {
     // sort the medications array by name
     medsArr.sort((a, b) => a.name.localeCompare(b.name));
     
-    return   <ul className="container flex-col">
-    {medsArr.map(({name,instructions,quantity})=>(<li key={nanoid()}>{name} {instructions} {quantity} </li>))}    </ul>
+    return   <ol className="container flex-col">
+    {medsArr.map(({name,instructions,quantity})=>(<li key={nanoid()}>{name} {instructions} {quantity} </li>))}    </ol>
   }
   
+
+  export function sortAcutes(str) {
+    const medsArr = [];
+  const medsStrArr = str.split(/\n(?=Acute Medication)/);
+  for (let i = 0; i < medsStrArr.length; i++) {
+    const medStr = medsStrArr[i].trim();
+    const medObj = {};
+    const [prescribedStr, name, instructions, quantity] = medStr.split(/\t/);
+    medObj.prescribed = prescribedStr.split(": ")[1];
+    medObj.name = name;
+    medObj.instructions = instructions;
+    medObj.quantity = quantity;
+    medsArr.push(medObj);
+  }
+
+  // sort the medications array by name
+  medsArr.sort((a, b) => a.name.localeCompare(b.name));
+    
+    return   <ol className="container flex-col">
+    {medsArr.map(({name,instructions,quantity})=>(<li key={nanoid()}> {instructions} {quantity} </li>))}    </ol>
+  }
+
+
 
   function formatDate(dateStr) {
     const date = new Date(dateStr);

@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from "react"
-import { sortMeds } from "../helper"
+import { sortRepeats,sortAcutes} from "../helper"
 import { nanoid } from "nanoid"
 
 
@@ -44,12 +44,12 @@ const useForm = () => {
         const [renderedAcuteMeds,setRenderedAcuteMeds]= useState(acuteMeds)
 
      const sortRegMeds=()=>{
-         setRenderedRegMeds(sortMeds(regMeds))
+         setRenderedRegMeds(sortRepeats(regMeds))
          console.log(renderedRegMeds)
     }
      
      const sortAcuteMeds=()=>{
-        setRenderedAcuteMeds(sortMeds(acuteMeds))    
+        setRenderedAcuteMeds(sortAcutes(acuteMeds))    
         console.log(renderedAcuteMeds)
     
     }       

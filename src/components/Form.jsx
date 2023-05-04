@@ -204,7 +204,7 @@ const Form = () => {
             
               </RadioLabel>
 
-              <RadioLabel label={<p>Discharge Plan </p>}>
+              <RadioLabel label={<p className='bold underline'>Discharge Plan </p>}>
                       <Radio      name='dischargePlan'          value='ownHome'         property={dischargePlan} title={'Own Home'}   />
                       <Radio      name='dischargePlan'          value='nursingHome'     property={dischargePlan} title={'Nursing Home'}   />
                       

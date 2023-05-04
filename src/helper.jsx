@@ -52,7 +52,7 @@ export function sortRepeats(str) {
   medsArr.sort((a, b) => a.name.localeCompare(b.name));
     
     return   <ol className="container flex-col">
-    {medsArr.map(({name,instructions,quantity})=>(<li key={nanoid()}>{name} {instructions} {quantity} </li>))}    </ol>
+    {medsArr.map(({name,instructions,quantity})=>(<li key={nanoid()}> {instructions} {quantity} </li>))}    </ol>
   }
 
 

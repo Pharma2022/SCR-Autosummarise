@@ -12,7 +12,7 @@ const PharmaceuticalNeeds = () => {
         <p>{isMca==='originalBoxes'? "Original boxes": isMca==="dosetteBox"? "Dosette box": isMca==='both' && "Original boxes AND Dosette box"}</p>
         <p>Does this patient meet the discharge medicines service(dms) referral criteria? {isDms? "Yes":"No"}</p>
         <p>Has the patient given consent to send information to the nominated pharmacy? {hasDmsConsent? "Yes":"No"}</p>
-        <p>Dosette box patient: {isDosette? "Yes":"No"} </p>
+        <p className='bold underline' >Dosette box patient: {isDosette? "Yes":"No"} </p>
         {isDosette&&        
         <Fragment>
         <p>Community pharmacy name:{chemistName} </p>

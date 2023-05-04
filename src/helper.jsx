@@ -14,7 +14,7 @@ export function sortMeds(str) {
         medObj.name = name;
         medObj.instructions = instructions;
         medObj.quantity = quantity;
-      } else if (medStr.includes("Authorised (not issued):")) {
+      } else if (medStr.includes("Authorised (not issued):"|| medStr.includes("Authorised:"))) {
         const [repeat, authorisedStr, name, instructions, quantity] = medStr.split(/\t/);
         medObj.repeat = repeat;
         medObj.issued = null;

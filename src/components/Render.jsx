@@ -12,7 +12,7 @@ import Methadone from './rendered components/Methadone'
 
 const Render = () => {
   return (
-    <div className='render container flex-col'>
+    <div className='render container flex-col' id='renderedForm'>
         <CompletedBy/>
         <Sources/>
         <Medications/>

@@ -29,7 +29,7 @@ export function sortRepeats(str) {
     // sort the medications array by name
     medsArr.sort((a, b) => a.name.localeCompare(b.name));
     
-    return   <ol className="container flex-col">
+    return   <ol>
     {medsArr.map(({name,instructions,quantity})=>(<li key={nanoid()}>{name} {instructions} {quantity} </li>))}    </ol>
   }
   
@@ -51,7 +51,7 @@ export function sortRepeats(str) {
   // sort the medications array by name
   medsArr.sort((a, b) => a.name.localeCompare(b.name));
     
-    return   <ol className="container flex-col">
+    return   <ol>
     {medsArr.map(({name,instructions,quantity})=>(<li key={nanoid()}> {instructions} {quantity} </li>))}    </ol>
   }
 

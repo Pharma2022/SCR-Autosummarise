@@ -2,35 +2,32 @@ import React from "react";
 import { nanoid, } from "nanoid";
 
 export function sortRepeats(str) {
-    const medsArr = [];
-    const medsStrArr = str.split(/\n(?=Repeat Medication)/);
-    for (let i = 0; i < medsStrArr.length; i++) {
-      const medStr = medsStrArr[i].trim();
-      const medObj = {};
-      if (medStr.includes("Last Issued:")) {
-        const [repeat, issuedStr, name, instructions, quantity] = medStr.split(/\t/);
-        medObj.repeat = repeat;
-        medObj.issued = issuedStr.split(": ")[1];
-        medObj.name = name;
-        medObj.instructions = instructions;
-        medObj.quantity = quantity;
-      } else if (medStr.includes("Authorised (not issued):"|| medStr.includes("Authorised:"))) {
-        const [repeat, authorisedStr, name, instructions, quantity] = medStr.split(/\t/);
-        medObj.repeat = repeat;
-        medObj.issued = null;
-        medObj.authorised = authorisedStr.split(": ")[1];
-        medObj.name = name;
-        medObj.instructions = instructions;
-        medObj.quantity = quantity;
-      }
-      medsArr.push(medObj);
+  const medsArr = [];
+  const medsStrArr = str.split(/\n(?=Repeat)/);
+  for (let i = 0; i < medsStrArr.length; i++) {
+    const medStr = medsStrArr[i].trim();
+    const medObj = {};
+    let [repeatType, issueDate, name, instructions, quantity] = medStr.split(/\t/);
+    medObj.repeatType = repeatType;
+    medObj.issueDate = issueDate.split(": ")[1];
+    medObj.name = name;
+    medObj.instructions = instructions;
+    medObj.quantity = quantity;
+    let supportingInfoMatch = medStr.match(/Supporting Information: \[(.*)\]/);
+    if (supportingInfoMatch) {
+      medObj.supportingInformation = supportingInfoMatch[1];
     }
-  
-    // sort the medications array by name
-    medsArr.sort((a, b) => a.name.localeCompare(b.name));
+    // handle 'Authorised (not issued):' case
+    let authorisedMatch = medStr.match(/Authorised(?: \(not issued\))?: ([^\t]*)/);
+    if (authorisedMatch) {
+      medObj.authorisedDate = authorisedMatch[1];
+    }
+    medsArr.push(medObj);
+  }
+  medsArr.sort((a, b) => a.name.localeCompare(b.name));
     
     return   <ol>
-    {medsArr.map(({name,instructions,quantity})=>(<li key={nanoid()}>{name} {instructions} {quantity} </li>))}    </ol>
+    {medsArr.map(({name,instructions})=>(<li key={nanoid()}>{name} {instructions}  </li>))}    </ol>
   }
   
 

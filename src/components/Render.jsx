@@ -24,6 +24,7 @@ const Render = () => {
         <Methadone/>
         <Discharge/>
 
+        <button>Copy to Clipboard</button>
     </div>
   )
 }

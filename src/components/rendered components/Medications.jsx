@@ -1,10 +1,13 @@
 import React from 'react'
 import { useFormContext } from '../../context/formContext'
+import { nanoid } from 'nanoid'
 
 const Medications = () => {
     const {form:{ hasAllergy,allergies,hasRegMeds,hasAcuteMeds,hasOtcMeds,otcMeds},renderedAcuteMeds,renderedRegMeds
 
 }=useFormContext()
+
+console.log (renderedRegMeds.split('\n'))
 
   return (
     <div>

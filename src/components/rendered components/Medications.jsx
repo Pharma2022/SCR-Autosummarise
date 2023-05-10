@@ -14,11 +14,7 @@ console.log (renderedRegMeds.split('\n'))
         <p className='bold underline'>Allergies:</p>
         <p>Allergies: {hasAllergy? allergies:"NKDA"}</p>
         <p className='bold underline'>Regular Mediation</p> 
-        { hasRegMeds? 
-        <ol>
-          {renderedRegMeds.split('\n').map(med=>(<li key={nanoid()}>{med} </li>))}
-        </ol>
-        :     <p>Nil</p>}
+        <p>{hasRegMeds?         renderedRegMeds:'Nil' }</p>
         <p className='bold underline'>Acute Medication</p>  
         <p>{hasAcuteMeds?     renderedAcuteMeds:'Nil' }</p>
         <p className='bold underline'>OTC Medication</p>    

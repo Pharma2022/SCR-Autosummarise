@@ -2,10 +2,10 @@ import React, { Fragment } from 'react'
 import { useFormContext } from '../../context/formContext'
 import {nanoid} from 'nanoid'
 
-const RadioLabel=({label,children,col})=>(
-<div className='form-row flex-col' >
+const RadioLabel=({label,children,col,className})=>(
+<div className={`form-row flex-col `} >
     <span>{label}</span>
-    <span className={col?'flex-col':null}>{children}</span>
+    <span className={`${col&&'flex-col'}  ${className}`}>{children}</span>
 </div>
 
 )
@@ -29,16 +29,16 @@ const YesNoRadio = ({label,value,name,yes,no,children}) => {
 
   return (
     <Fragment>
-   <RadioLabel label={label}>
+   <RadioLabel className={`toggle-btn ${value? 'green-toggle':'red-toggle'}`} label={label }>
 
-        <label >{yes? yes:"Yes"}
-        <input    type="radio" name={name} value={true} onChange={handleChange} checked={value}  />
+        <label value={true} className={value?'checked' :null} onClick={handleChange} name={name} >{yes? yes:"Yes"}
+        <input  className='yesno'  type="radio" name={name} value={true} onChange={handleChange} checked={value}  />
         </label>
 
         
-         <label >{no? no :"No"}
+         <label value={""} className={!value?'checked' :null} onClick={handleChange} name={name} >{no? no :"No"}
          
-         <input   type="radio" name={name} value={""} onChange={handleChange} checked={!value}  />
+         <input  className='yesno' type="radio" name={name} value={""} onChange={handleChange} checked={!value}  />
          </label>
       
 

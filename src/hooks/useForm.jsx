@@ -43,17 +43,42 @@ const useForm = () => {
         
         const [renderedAcuteMeds,setRenderedAcuteMeds]= useState(acuteMeds)
 
+        const [regFormat,SetRegMedsFormat]=useState('scr')
+        const [acuteFormat,setAcuteMedsFormat]=useState('scr')
+
+        const formatregSCR=()=>{
+            setRenderedRegMeds('')
+            SetRegMedsFormat('scr')}
+
+        const formatregFreetype=()=>{
+            setRenderedRegMeds('')
+            SetRegMedsFormat('freetype')}
+
+
+            const formatAcuteSCR=()=>{
+                setRenderedAcuteMeds('')
+                setAcuteMedsFormat('scr')}
+    
+            const formatAcuteFreetype=()=>{
+                setRenderedAcuteMeds('')
+                setAcuteMedsFormat('freetype')}
+
+
      const sortRegMeds=()=>{
          setRenderedRegMeds(sortRepeats(regMeds))
-         console.log(renderedRegMeds)
+
     }
      
      const sortAcuteMeds=()=>{
         setRenderedAcuteMeds(sortAcutes(acuteMeds))    
-        console.log(renderedAcuteMeds)
-    
+        
     }       
-
+    useEffect(()=>{
+        setFormData(prev=>({...prev,regMeds:""}))
+    },[regFormat])
+    useEffect(()=>{
+        setFormData(prev=>({...prev,acuteMeds:""}))
+    },[acuteFormat])
     useEffect(()=>{
         setRenderedRegMeds(regMeds)
     },[regMeds])
@@ -94,7 +119,7 @@ const useForm = () => {
 
   }
   return { form,sortAcuteMeds,sortRegMeds
-    ,handleChange,renderedAcuteMeds,renderedRegMeds}
+    ,handleChange,renderedAcuteMeds,renderedRegMeds,formatregFreetype,formatregSCR,acuteFormat,regFormat,formatAcuteSCR,formatAcuteFreetype}
 }
 
 export default useForm

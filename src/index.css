@@ -28,18 +28,22 @@ div,span,input,label,textarea,form{
 }
 .green-toggle{
   background-color: green;
+  color: whitesmoke;
 }
 
 .red-toggle{
   background-color: red;
+  color: whitesmoke;
 }
+
+
 .checked{
   color: whitesmoke;
   font-weight: 800;
 }
 .toggle-btn{
   display: flex;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   justify-content: space-between;
   color: black;
   border-radius: 20rem;
@@ -55,6 +59,23 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+}
+
+.format{
+  display: flex;
+  align-items: center;
+  gap:2em;
+  border: 1px solid purple;
+margin-block:1em;
+border-radius: 0.3em;
+text-align: center;
+
+}
+.format>*{
+  width: 100%;
+  padding: 0.5em;
+  margin-block: auto;
+  align-self: center;
 }
 a:hover {
   color: #535bf2;

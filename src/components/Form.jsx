@@ -12,7 +12,7 @@ import CheckBox from './form elements/CheckBox'
 
 
 const Form = () => {
-    const { form,sortAcuteMeds,sortRegMeds }=useFormContext()
+    const { form,sortAcuteMeds,sortRegMeds,formatregFreetype,formatregSCR,acuteFormat,regFormat,formatAcuteSCR,formatAcuteFreetype }=useFormContext()
         const {
           completedBy,reconciledBy,transcribedBy,dateCompleted,timeCompleted,medReviewRequired,medReviewComments,
           SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist, 
@@ -70,17 +70,28 @@ const Form = () => {
             <TextArea    name='allergies'      value={allergies}/>
           </YesNoRadio>
           <YesNoRadio    name='hasRegMeds'     value={hasRegMeds}    label={<p className='bold underline'>Regular Medicines </p>} >
+            <span className='form-row format '><p className={ regFormat==='scr'&&'green-toggle'} onClick={formatregSCR}>Copy from SCR</p><p className={regFormat==='freetype'&&'red-toggle' } onClick={formatregFreetype}>Freetype</p></span>
+
             <TextArea    name='regMeds'        value={regMeds}/>
-            {regMeds&& <button type='button' className='button' onClick={()=>sortRegMeds()}>Sort</button>}
+            {regMeds&& regFormat==='scr'&& <button type='button' className='button' onClick={()=>sortRegMeds()}>Sort</button>}
+
+
+
           </YesNoRadio> 
           <YesNoRadio    name='hasAcuteMeds'   value={hasAcuteMeds}  label={<p className='bold underline'>Acute Medicines </p>} >
             <TextArea    name='acuteMeds'      value={acuteMeds}/>
-            {acuteMeds&& <button type='button'className='button' onClick={()=>sortAcuteMeds()}>Sort</button>}
+            <span className='form-row format '><p className={ regFormat==='scr'&&'green-toggle'} onClick={formatAcuteSCR}>Copy from SCR</p><p className={acuteFormat==='freetype'&&'red-toggle' } onClick={formatAcuteFreetype}>Freetype</p></span>
+
+            {acuteMeds &&acuteFormat==='scr' && <button type='button'className='button' onClick={()=>sortAcuteMeds()}>Sort</button>}
+
+
+
+
           </YesNoRadio>
           <YesNoRadio    name='hasOtcMeds'     value={hasOtcMeds}    label={<p className='bold underline'>OTC Medicines</p>} >
             <TextArea    name='otcMeds'        value={otcMeds}/>
           </YesNoRadio> 
-          <YesNoRadio    name='smokes'         value={smokes}        label={<p className='bold underline'>Smoking Status'</p>} >
+          <YesNoRadio    name='smokes'         value={smokes}        label={<p className='bold underline'>Smoking Status</p>} >
             <NumberInput name='cigNum'         value={""||cigNum}    title='Number of cigarettes smoked per day' />
             <YesNoRadio  name='smokingAdvice'  value={smokingAdvice} label='Smoking cessation advice given' >
               <TextArea  name='smokingAdviceComments' value={smokingAdviceComments} placeholder={'Specify'}/>
@@ -106,7 +117,7 @@ const Form = () => {
 
           <YesNoRadio     
                       name='hasSteroids'    value={hasSteroids}     yes='History of steroid therapy' no='No Steroid Therapy' 
-                      label={<p className='bold underline'>'NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete</p>}>
+                      label={<p className='bold underline'>NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete</p>}>
                 <p>If yes to any questions below, supply red steroid emergency card on discharge (add red steroid card prompt on TTA).
                   Refer to the bulletin and Adrenal Crisis Clinical Guideline for full criteria.</p>
               <a href='https://my.northmid.nhs.uk/download.cfm?ver=9962%3E' target='_blank'>

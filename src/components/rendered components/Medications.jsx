@@ -3,22 +3,41 @@ import { useFormContext } from '../../context/formContext'
 import { nanoid } from 'nanoid'
 
 const Medications = () => {
-    const {form:{ hasAllergy,allergies,hasRegMeds,hasAcuteMeds,hasOtcMeds,otcMeds},renderedAcuteMeds,renderedRegMeds
+    const {regFormat,acuteFormat, form:{ hasAllergy,allergies,hasRegMeds,hasAcuteMeds,hasOtcMeds,otcMeds},renderedAcuteMeds,renderedRegMeds
 
 }=useFormContext()
 
-console.log (renderedRegMeds.split('\n'))
+
 
   return (
     <div>
         <p className='bold underline'>Allergies:</p>
         <p>Allergies: {hasAllergy? allergies:"NKDA"}</p>
         <p className='bold underline'>Regular Mediation</p> 
-        <p>{hasRegMeds?         renderedRegMeds:'Nil' }</p>
+      {!hasRegMeds? <p>Nil</p>: 
+      regFormat==='scr'? <p>{renderedRegMeds}</p>
+      : regFormat==='freetype'&& 
+
+    <ol>
+      {renderedRegMeds.length?renderedRegMeds.split('\n').map(item=><li key={nanoid()}>{item}</li>):null}
+    </ol>
+
+      }
+
+
+
         <p className='bold underline'>Acute Medication</p>  
-        <p>{hasAcuteMeds?     renderedAcuteMeds:'Nil' }</p>
+        {!hasAcuteMeds? <p>Nil</p>: 
+      acuteFormat==='scr'? <p>{renderedAcuteMeds}</p>
+      : acuteFormat==='freetype'&& 
+
+    <ol>
+      {renderedAcuteMeds.length?renderedAcuteMeds.split('\n').map(item=><li key={nanoid()}>{item}</li>):null}
+    </ol>
+
+      }
         <p className='bold underline'>OTC Medication</p>    
-        <p>{hasOtcMeds?         otcMeds:'Nil'}</p>
+        <p>{hasOtcMeds? otcMeds.length?          otcMeds.split('\n').map(item=><li key={nanoid()}>{item}</li>) :null:'Nil'}</p>
   
     </div>
   )

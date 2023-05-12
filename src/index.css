@@ -13,28 +13,51 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+
+html{
+  font-size: 1.1rem;
+}
+
+.wrapper{
+  gap:2.5rem
+}
+
 *,*::before,*::after{
   box-sizing: border-box;
   padding: 0;
-  margin: 0;}
+  margin: 0;
+
+}
 
 div,span,input,label,textarea,form{
   margin: 0;
   padding: 0;
+  outline: none;
 }
+
+textarea{
+  margin-bottom: 1em;
+}
+
 
 #renderedForm{
   margin-top: 4em;
 }
 .green-toggle{
-  background-color: green;
+  background-color: #00bc9c;;
   color: whitesmoke;
+  border-top-right-radius: 10em;
+  border-bottom-right-radius: 10em;
 }
 
 .red-toggle{
-  background-color: red;
+  border-top-left-radius: 10em;
+  border-bottom-left-radius: 10em;
+  background-color: #eb4f37;
   color: whitesmoke;
 }
+
 
 
 .checked{
@@ -63,20 +86,29 @@ a {
 
 .format{
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap:2em;
-  border: 1px solid purple;
-margin-block:1em;
-border-radius: 0.3em;
+font-size: 0.8rem;
+  border: 0.3px solid darkgray;
+margin-bottom:1em;
+border-radius: 10em;
 text-align: center;
+max-width: 80%;
 
 }
 .format>*{
+  height: 100%;
   width: 100%;
-  padding: 0.5em;
-  margin-block: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 1.2rem;
+  margin: auto;
   align-self: center;
+  overflow: none;
+
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -146,7 +178,7 @@ form{
   background-color: red;
 }
 .form-row{
-  margin-top:1rem;
+  margin-top: 0.75rem;
   
   align-content: flex-start;
   

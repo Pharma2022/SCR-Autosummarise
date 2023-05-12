@@ -13,7 +13,8 @@ const useForm = () => {
         SCR:"",SCRupdated:"",patient:"",eTTA:"",eTTADate:"",pods:"",carer:"",nursingHome:"",GP:"",chemist:"",  
         hasAllergy:"", allergies:"",hasRegMeds:"",regMeds:"",hasAcuteMeds:"",acuteMeds:"",hasOtcMeds:"",otcMeds:"",
         smokes:"",cigNum:"",smokingAdvice:"",smokingAdviceComments:"",nrtConsent:"",preferredNrt:"",smokingReferral:"",
-        discrepancies:"",pharmReferral:"",pharmReferralComments:"",
+        discrepancies:"", newMeds:"",changed:"",withheld:""
+        ,pharmReferral:"",pharmReferralComments:"",
         hasSteroids:"",longTermHigh:"",longTermHighIndication:"",hasIcs:"",ics:"",hasEmergencySteroids:"",emergencySteroids:"",
         isMca:"",isDms:"",hasDmsConsent:"",isDosette:"",chemistName:"",chemistNo:"",odsCode:"",nhsMail:"",lastSupplyDate:"", 
         commsIssues:"",commsIssuesComments:"", counsellingReq:"",counsellingReqComments:"",compliance:"",complianceComments:"",
@@ -28,7 +29,7 @@ const useForm = () => {
         SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist, 
         hasAllergy,allergies,hasRegMeds,regMeds,hasAcuteMeds,acuteMeds,hasOtcMeds,otcMeds,
         smokes,cigNum,smokingAdvice,smokingAdviceComments,nrtConsent,preferredNrt,smokingReferral, 
-        discrepancies,pharmReferral,pharmReferralComments,
+        discrepancies,newMeds,changed,withheld,pharmReferral,pharmReferralComments,
         hasSteroids,longTermHigh,longTermHighIndication,hasIcs,ics,hasEmergencySteroids,emergencySteroids,
         isMca,isDms,hasDmsConsent,isDosette,chemistName,chemistNo,odsCode,nhsMail,lastSupplyDate, 
         commsIssues,commsIssuesComments, counsellingReq,counsellingReqComments,compliance,complianceComments, 
@@ -73,6 +74,11 @@ const useForm = () => {
         setRenderedAcuteMeds(sortAcutes(acuteMeds))    
         
     }       
+
+    useEffect(()=>{
+        !discrepancies&&setFormData(prev=>({...prev,newMeds:"",withheld:"",changed:""}))
+    },[discrepancies])
+
     useEffect(()=>{
         setFormData(prev=>({...prev,regMeds:""}))
     },[regFormat])

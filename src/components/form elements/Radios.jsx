@@ -29,14 +29,14 @@ const YesNoRadio = ({label,value,name,yes,no,children}) => {
 
   return (
     <Fragment>
-   <RadioLabel className={`toggle-btn ${value? 'green-toggle':'red-toggle'}`} label={label }>
+   <RadioLabel className={`format`} label={label }>
 
-        <label value={true} className={value?'checked' :null} onClick={handleChange} name={name} >{yes? yes:"Yes"}
+        <label value={true}  style={{cursor:'pointer'}}  className={value?'red-toggle' :null} onClick={handleChange} name={name} >{yes? yes:"Yes"}
         <input  className='yesno'  type="radio" name={name} value={true} onChange={handleChange} checked={value}  />
         </label>
 
         
-         <label value={""} className={!value?'checked' :null} onClick={handleChange} name={name} >{no? no :"No"}
+         <label value={""} style={{cursor:'pointer'}}  className={!value?'green-toggle' :null} onClick={handleChange} name={name} >{no? no :"No"}
          
          <input  className='yesno' type="radio" name={name} value={""} onChange={handleChange} checked={!value}  />
          </label>

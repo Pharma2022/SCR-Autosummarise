@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import '../index.css'
 import { useFormContext } from '../context/formContext'
 import TextInput from './form elements/TextInput'
-import Date from './form elements/Date'
+import FormDate from './form elements/Date'
 import Time from './form elements/Time'
 import {YesNoRadio,Radio,RadioLabel} from './form elements/Radios'
 import TextArea from './form elements/TextArea'
@@ -18,7 +18,7 @@ const Form = () => {
           SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist, 
           hasAllergy,allergies,hasRegMeds,regMeds,hasAcuteMeds,acuteMeds,hasOtcMeds,otcMeds,
           smokes,cigNum,smokingAdvice,smokingAdviceComments,nrtConsent,preferredNrt,smokingReferral, 
-          discrepancies,pharmReferral,pharmReferralComments,
+          discrepancies, newMeds,changed,withheld,pharmReferral,pharmReferralComments,
           hasSteroids,longTermHigh,longTermHighIndication,hasIcs,ics,hasEmergencySteroids,emergencySteroids,
           isMca,isDms,hasDmsConsent,isDosette,chemistName,chemistNo,odsCode,nhsMail,lastSupplyDate, 
           commsIssues,commsIssuesComments, counsellingReq,counsellingReqComments,compliance,complianceComments, 
@@ -38,7 +38,7 @@ const Form = () => {
          <TextInput      name='completedBy'     value={completedBy}    title='Completed by'/>
          <TextInput      name='reconciledBy'    value={reconciledBy}   title='Reconciled by'/>
          <TextInput      name='transcribedBy'   value={transcribedBy}  title='Transcribed by'/>
-         <Date           name='dateCompleted'   value={dateCompleted}  title='Date Completed'/>
+         <FormDate       name='dateCompleted'   value={dateCompleted}  title='Date Completed'/>
          <Time           name='timeCompleted'   value={timeCompleted}  title='Time Completed'/>   
          
          <YesNoRadio     label={<p className='bold underline red'>Medical Team to Review</p>} no=' Nothing'
@@ -51,11 +51,11 @@ const Form = () => {
             
             <CheckBox    name='SCR'            value={SCR}          title='SCR' />
             {SCR&& 
-            <Date        name='SCRupdated'     value={SCRupdated}   title='SCR last updated'/>}
+            <FormDate        name='SCRupdated'     value={SCRupdated}   title='SCR last updated'/>}
             <CheckBox    name='patient'        value={patient}      title='Patient'/>
             <CheckBox    name='eTTA'           value={eTTA}         title='TTA'/>
             {eTTA&& 
-            <Date        name='eTTADate'       value={eTTADate}     title='TTA Date'/>}
+            <FormDate        name='eTTADate'       value={eTTADate}     title='TTA Date'/>}
             <CheckBox    name='pods'           value={pods}         title='PODS'/>
             <CheckBox    name='carer'          value={carer}        title='Carer'/>
             <CheckBox    name='nursingHome'    value={nursingHome}  title='Nursing Home'/>
@@ -70,7 +70,11 @@ const Form = () => {
             <TextArea    name='allergies'      value={allergies}/>
           </YesNoRadio>
           <YesNoRadio    name='hasRegMeds'     value={hasRegMeds}    label={<p className='bold underline'>Regular Medicines </p>} >
-            <span className='form-row format '><p className={ regFormat==='scr'&&'green-toggle'} onClick={formatregSCR}>Copy from SCR</p><p className={regFormat==='freetype'&&'red-toggle' } onClick={formatregFreetype}>Freetype</p></span>
+            <span className='form-row format '><p 
+            style={{cursor:'pointer'}}
+            className={ regFormat==='scr'&&'red-toggle'} onClick={formatregSCR}>Copy from SCR</p><p 
+            style={{cursor:'pointer'}}
+            className={regFormat==='freetype'&&'green-toggle' } onClick={formatregFreetype}>Freetype</p></span>
 
             <TextArea    name='regMeds'        value={regMeds}/>
             {regMeds&& regFormat==='scr'&& <button type='button' className='button' onClick={()=>sortRegMeds()}>Sort</button>}
@@ -80,7 +84,11 @@ const Form = () => {
           </YesNoRadio> 
           <YesNoRadio    name='hasAcuteMeds'   value={hasAcuteMeds}  label={<p className='bold underline'>Acute Medicines </p>} >
             <TextArea    name='acuteMeds'      value={acuteMeds}/>
-            <span className='form-row format '><p className={ regFormat==='scr'&&'green-toggle'} onClick={formatAcuteSCR}>Copy from SCR</p><p className={acuteFormat==='freetype'&&'red-toggle' } onClick={formatAcuteFreetype}>Freetype</p></span>
+            <span className='form-row format '><p 
+            style={{cursor:'pointer'}}
+            className={ regFormat==='scr'&&'red-toggle'} onClick={formatAcuteSCR}>Copy from SCR</p><p 
+            style={{cursor:'pointer'}}
+            className={acuteFormat==='freetype'&&'green-toggle' } onClick={formatAcuteFreetype}>Freetype</p></span>
 
             {acuteMeds &&acuteFormat==='scr' && <button type='button'className='button' onClick={()=>sortAcuteMeds()}>Sort</button>}
 
@@ -107,9 +115,21 @@ const Form = () => {
 
           </YesNoRadio>
 
-          <Label          name='discrepancies' label={<p className='bold underline'>List of Discrepancies (with Reasons)</p>}>
-                <TextArea name='discrepancies' value={discrepancies} placeholder={'New:Changes:Stopped'}/>
-          </Label>
+
+
+          <YesNoRadio name={'discrepancies'}    value={discrepancies}  label={<p className='bold underline'>Discrepancies found?</p>}>
+            <p className='bold underline'>List of Discrepancies (with Reasons)</p>
+            <p className='bold underline'> New</p>
+            <TextArea name='newMeds' value={newMeds} placeholder={'New'}/>
+            <p className='bold underline'> Changed</p>
+            <TextArea name='changed' value={changed} placeholder={'Changed'}/>
+            <p className='bold underline'> Withheld</p>
+            <TextArea name='withheld' value={withheld} placeholder={'Withheld'}/>
+            
+            </YesNoRadio>    
+     
+
+
 
           <YesNoRadio     name='pharmReferral'        value={pharmReferral}  no='N/A' label={<p className='bold underline'>Referral to Pharmacist /Pharmacy Technician</p>}>
                 <TextArea name='pharmReferralComments' value={pharmReferralComments} placeholder={'Enter details'}/>
@@ -156,7 +176,7 @@ const Form = () => {
                   <TextInput name='chemistNo'              value={chemistNo}           title='Contact number'/>
                   <TextInput name='odsCode'                value={odsCode}             title='ODS Code'/>
                   <TextInput name='nhsMail'                value={nhsMail}             title='NHS Email'/>
-                  <Date      name='lastSupplyDate'         value={lastSupplyDate}      title='Date of last supply'/>
+                  <FormDate      name='lastSupplyDate'         value={lastSupplyDate}      title='Date of last supply'/>
               </YesNoRadio>
               <YesNoRadio    name='commsIssues'            value={commsIssues}         label={<p>Communication concerns (e.g.visual/hearing/language)</p>} >
                   <TextArea  name='commsIssuesComments'    value={commsIssuesComments} placeholder='Specify'/>
@@ -181,12 +201,12 @@ const Form = () => {
                       <TextInput name='warfarinRange'           value={warfarinRange}              title='Target Range' />
                       <TextInput name='warfarinDose'            value={warfarinDose}               title='Dose' />
                       <TextInput name='warfarinDuration'        value={warfarinDuration}           title='Duration' />
-                      <Date      name='warfarinLastAppt'        value={warfarinLastAppt}           title='Last appointment Date' />
+                      <FormDate      name='warfarinLastAppt'        value={warfarinLastAppt}           title='Last appointment Date' />
                       <TextInput name='warfarinINR'             value={warfarinINR}                title='Last INR Result'/>
                       <TextInput name='warfarinClinic'          value={warfarinClinic}             title='Name of anticoagulation clinic/provider'/>
                       <TextInput name='warfarinClinicContactNo' value={warfarinClinicContactNo}    title='Contact number of provider'/>
                       <TextInput name='warfarinClinicEmail'     value={warfarinClinicEmail}        title='Email of provider'/>
-                      <Date      name='warfarinNextAppt'        value={warfarinNextAppt}           title='Date of next appointment' />
+                      <FormDate      name='warfarinNextAppt'        value={warfarinNextAppt}           title='Date of next appointment' />
               </YesNoRadio>
 
 
@@ -197,7 +217,7 @@ const Form = () => {
                       </RadioLabel>
                       <TextInput  name='opioidDose'             value={opioidDose}                title={'Dose'}/>
                       {opioid&& 
-                      <Date       name='lastOpioidSupply'       value={lastOpioidSupply}          title={`last supply of ${opioid}`}/>}
+                      <FormDate       name='lastOpioidSupply'       value={lastOpioidSupply}          title={`last supply of ${opioid}`}/>}
                       <TextInput  name='opioidChemistNameAndNo' value={opioidChemistNameAndNo}    title={'Dose'}/>
                       <TextInput  name='dals'                   value={dals}                      title={'Details of drug advisory service'}/>
                       <TextInput  name='dalsContactNo'          value={dalsContactNo}             title={'Contact No (Grove/Enable/other)'}/>
@@ -232,8 +252,6 @@ const Form = () => {
           }
 
 
-       
-         <button className='button'>Submit</button>
 
 
     </form>

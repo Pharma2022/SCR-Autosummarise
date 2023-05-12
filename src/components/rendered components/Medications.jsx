@@ -12,7 +12,7 @@ const Medications = () => {
   return (
     <div>
         <p className='bold underline'>Allergies:</p>
-        <p>Allergies: {hasAllergy? allergies:"NKDA"}</p>
+        <p>Allergies: {hasAllergy? allergies.split('\n'):"NKDA"}</p>
         <p className='bold underline'>Regular Mediation</p> 
       {!hasRegMeds? <p>Nil</p>: 
       regFormat==='scr'? <p>{renderedRegMeds}</p>
@@ -37,7 +37,7 @@ const Medications = () => {
 
       }
         <p className='bold underline'>OTC Medication</p>    
-        <p>{hasOtcMeds? otcMeds.length?          otcMeds.split('\n').map(item=><li key={nanoid()}>{item}</li>) :null:'Nil'}</p>
+        <p>{hasOtcMeds? otcMeds.split('\n').length?          otcMeds.split('\n').map(item=><li key={nanoid()}>{item}</li>) :otcMeds:'Nil'}</p>
   
     </div>
   )

@@ -8,7 +8,7 @@ const {handleChange}=useFormContext()
 
 
   return (
-    <div className='form-row flex-col'>
+    <div className='form-row flex-row wrap'>
     <label htmlFor={name}>{title}</label>
     <input type='text' name={name} value={value} onChange={handleChange} />
     </div>

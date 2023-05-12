@@ -47,18 +47,22 @@ textarea{
 .green-toggle{
   background-color: #00bc9c;;
   color: whitesmoke;
-  border-top-right-radius: 10em;
-  border-bottom-right-radius: 10em;
+  /* border-top-right-radius: 10em; */
+  /* border-bottom-right-radius: 10em; */
 }
 
 .red-toggle{
-  border-top-left-radius: 10em;
-  border-bottom-left-radius: 10em;
+  /* border-top-left-radius: 10em; */
+  /* border-bottom-left-radius: 10em; */
   background-color: #eb4f37;
   color: whitesmoke;
 }
 
-
+.radio-btn{
+  padding-block: 0.6rem;
+  overflow: none;
+  border-radius: 0.5rem;
+}
 
 .checked{
   color: whitesmoke;
@@ -91,7 +95,7 @@ a {
 font-size: 0.8rem;
   border: 0.3px solid darkgray;
 margin-bottom:1em;
-border-radius: 10em;
+border-radius: 0.5rem;
 text-align: center;
 max-width: 80%;
 
@@ -102,7 +106,7 @@ max-width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.4rem 1.2rem;
+
   margin: auto;
   align-self: center;
   overflow: none;

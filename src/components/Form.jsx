@@ -51,11 +51,11 @@ const Form = () => {
             
             <CheckBox    name='SCR'            value={SCR}          title='SCR' />
             {SCR&& 
-            <FormDate        name='SCRupdated'     value={SCRupdated}   title='SCR last updated'/>}
+            <FormDate    name='SCRupdated'     value={SCRupdated}   title='SCR last updated'/>}
             <CheckBox    name='patient'        value={patient}      title='Patient'/>
             <CheckBox    name='eTTA'           value={eTTA}         title='TTA'/>
             {eTTA&& 
-            <FormDate        name='eTTADate'       value={eTTADate}     title='TTA Date'/>}
+            <FormDate    name='eTTADate'       value={eTTADate}     title='TTA Date'/>}
             <CheckBox    name='pods'           value={pods}         title='PODS'/>
             <CheckBox    name='carer'          value={carer}        title='Carer'/>
             <CheckBox    name='nursingHome'    value={nursingHome}  title='Nursing Home'/>
@@ -70,11 +70,11 @@ const Form = () => {
             <TextArea    name='allergies'      value={allergies}/>
           </YesNoRadio>
           <YesNoRadio    name='hasRegMeds'     value={hasRegMeds}    label={<p className='bold underline'>Regular Medicines </p>} >
-            <span className='form-row format '><p 
+            <span className='form-row format '>
+              <p style={{cursor:'pointer'}}
+            className={ `radio-btn ${regFormat==='scr'&&'green-toggle'}`} onClick={formatregSCR}>Copy from SCR</p><p 
             style={{cursor:'pointer'}}
-            className={ regFormat==='scr'&&'red-toggle'} onClick={formatregSCR}>Copy from SCR</p><p 
-            style={{cursor:'pointer'}}
-            className={regFormat==='freetype'&&'green-toggle' } onClick={formatregFreetype}>Freetype</p></span>
+            className={`radio-btn ${regFormat==='freetype'&&'green-toggle'}` } onClick={formatregFreetype}>Freetype</p></span>
 
             <TextArea    name='regMeds'        value={regMeds}/>
             {regMeds&& regFormat==='scr'&& <button type='button' className='button' onClick={()=>sortRegMeds()}>Sort</button>}
@@ -86,9 +86,9 @@ const Form = () => {
             <TextArea    name='acuteMeds'      value={acuteMeds}/>
             <span className='form-row format '><p 
             style={{cursor:'pointer'}}
-            className={ regFormat==='scr'&&'red-toggle'} onClick={formatAcuteSCR}>Copy from SCR</p><p 
+            className={ `radio-btn ${acuteFormat==='scr'&&'green-toggle'}`} onClick={formatAcuteSCR}>Copy from SCR</p><p 
             style={{cursor:'pointer'}}
-            className={acuteFormat==='freetype'&&'green-toggle' } onClick={formatAcuteFreetype}>Freetype</p></span>
+            className={ `radio-btn ${acuteFormat==='freetype'&&'green-toggle'}`} onClick={formatAcuteFreetype}>Freetype</p></span>
 
             {acuteMeds &&acuteFormat==='scr' && <button type='button'className='button' onClick={()=>sortAcuteMeds()}>Sort</button>}
 

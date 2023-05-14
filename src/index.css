@@ -60,6 +60,7 @@ textarea{
 
 .radio-btn{
   padding-block: 0.6rem;
+  padding-inline: 1rem;
   overflow: none;
   border-radius: 0.5rem;
 }
@@ -116,6 +117,10 @@ max-width: 80%;
   align-self: center;
   overflow: none;
 
+}
+
+input[type=date],input[type=date]{
+  max-height: 80%;
 }
 
 a:hover {

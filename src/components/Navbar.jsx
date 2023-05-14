@@ -8,32 +8,29 @@ const NavItem=({active,href,title,onClick,id})=>(
 
 
 
-const Navbar = () => {
+ const Navbar = () => {
 
     const [links,setLinks]=useState(navLinks)
-    console.log(links)
+    const [expanded,setExpanded]=useState(false)
 
     const handleChange=(ID)=>{
         setLinks(prev=>prev.map(item=>({...item,active:item.id===ID? true:false })))
-
-
-
     }
+
+    const toggleNavbar=()=>setExpanded(prev=>!prev)
 
 
 
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <a className="navbar-brand" href="#">Clinical applications</a>
-    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+   
+    <button className="navbar-toggler fixed-top-left" type="button" onClick={toggleNavbar}  aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
 
-    <div className="collapse navbar-collapse" id="navbarColor01">
+    <div className={`${!expanded &&"collapse navbar-collapse"}`} id="navbarColor01">
       <ul className="navbar-nav ml-auto">
+    <li className="navbar-brand"  onClick={toggleNavbar}>Clinical applications</li>
         {links.map(({active,href,title,id})=>(<NavItem active={active} href={href} title={title} key={id} onClick={()=>handleChange(id)} />))}
  
       </ul>

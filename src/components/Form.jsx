@@ -4,15 +4,17 @@ import { useFormContext } from '../context/formContext'
 import TextInput from './form elements/TextInput'
 import FormDate from './form elements/Date'
 import Time from './form elements/Time'
-import {YesNoRadio,Radio,RadioLabel} from './form elements/Radios'
+import {YesNoRadio,Radio,RadioLabel, GenericRadio, CustomRadio} from './form elements/Radios'
 import TextArea from './form elements/TextArea'
 import NumberInput from './form elements/NumberInput'
 import Label from './form elements/Label'
 import CheckBox from './form elements/CheckBox'
+// import { checkboxesArray } from '../formData'
+import { nanoid } from 'nanoid'
 
 
 const Form = () => {
-    const { form,sortAcuteMeds,sortRegMeds,formatregFreetype,formatregSCR,acuteFormat,regFormat,formatAcuteSCR,formatAcuteFreetype }=useFormContext()
+    const { form, checkboxesArray, sortAcuteMeds,sortRegMeds,formatregFreetype,formatregSCR,acuteFormat,regFormat,formatAcuteSCR,formatAcuteFreetype }=useFormContext()
         const {
           completedBy,reconciledBy,transcribedBy,dateCompleted,timeCompleted,medReviewRequired,medReviewComments,
           SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist, 
@@ -35,11 +37,11 @@ const Form = () => {
   return (
     <form className='container flex-col' onSubmit={handleSubmit} >
       
-         <TextInput      name='completedBy'     value={completedBy}    title='Completed by'/>
-         <TextInput      name='reconciledBy'    value={reconciledBy}   title='Reconciled by'/>
-         <TextInput      name='transcribedBy'   value={transcribedBy}  title='Transcribed by'/>
-         <FormDate       name='dateCompleted'   value={dateCompleted}  title='Date Completed'/>
-         <Time           name='timeCompleted'   value={timeCompleted}  title='Time Completed'/>   
+         <TextInput className={'flex-row'}     name='completedBy'     value={completedBy}    title='Completed by'/>
+         <TextInput className={'flex-row'}     name='reconciledBy'    value={reconciledBy}   title='Reconciled by'/>
+         <TextInput className={'flex-row'}     name='transcribedBy'   value={transcribedBy}  title='Transcribed by'/>
+         <FormDate  className={'flex-row'}     name='dateCompleted'   value={dateCompleted}  title='Date Completed'/>
+         <Time      className={'flex-row'}     name='timeCompleted'   value={timeCompleted}  title='Time Completed'/>   
          
          <YesNoRadio     label={<p className='bold underline red'>Medical Team to Review</p>} no=' Nothing'
                          name='medReviewRequired' value={medReviewRequired}   >
@@ -47,23 +49,13 @@ const Form = () => {
          </YesNoRadio>
          <p className='bold underline left'>Drug History </p>
           <p className='bold underline'> Sources</p>
-         <div className='checkboxes  wrap'>
-            
-            <CheckBox    name='SCR'            value={SCR}          title='SCR' />
-            {SCR&& 
-            <FormDate    name='SCRupdated'     value={SCRupdated}   title='SCR last updated'/>}
-            <CheckBox    name='patient'        value={patient}      title='Patient'/>
-            <CheckBox    name='eTTA'           value={eTTA}         title='TTA'/>
-            {eTTA&& 
-            <FormDate    name='eTTADate'       value={eTTADate}     title='TTA Date'/>}
-            <CheckBox    name='pods'           value={pods}         title='PODS'/>
-            <CheckBox    name='carer'          value={carer}        title='Carer'/>
-            <CheckBox    name='nursingHome'    value={nursingHome}  title='Nursing Home'/>
-            <CheckBox    name='GP'             value={GP}           title='GP'/>
-            <CheckBox    name='chemist'        value={chemist}      title='Community Pharmacy'/>
-           
-    
-         </div>
+
+        <div className='checkboxes wrap'>
+          {checkboxesArray.map(({name,value,title,isDate,conditional})=> isDate? (conditional&&
+           <FormDate key={nanoid()} name={name} value={value}  title={title} />) :(
+           <CheckBox key={nanoid()} name={name} value={value} title={title} />))}
+        </div>
+
 
          
           <YesNoRadio    name='hasAllergy'     value={hasAllergy}    label={<p className='bold underline'>Patient drug allergies/sensitivities and reactions</p>} no='NKDA'  >
@@ -71,10 +63,9 @@ const Form = () => {
           </YesNoRadio>
           <YesNoRadio    name='hasRegMeds'     value={hasRegMeds}    label={<p className='bold underline'>Regular Medicines </p>} >
             <span className='form-row format '>
-              <p style={{cursor:'pointer'}}
-            className={ `radio-btn ${regFormat==='scr'&&'green-toggle'}`} onClick={formatregSCR}>Copy from SCR</p><p 
-            style={{cursor:'pointer'}}
-            className={`radio-btn ${regFormat==='freetype'&&'green-toggle'}` } onClick={formatregFreetype}>Freetype</p></span>
+            <GenericRadio property={regFormat} value='scr'      onClick={formatregSCR} >Copy from SCR </GenericRadio>
+            <GenericRadio property={regFormat} value='freetype' onClick={formatregFreetype} >Freetype</GenericRadio>
+            </span>
 
             <TextArea    name='regMeds'        value={regMeds}/>
             {regMeds&& regFormat==='scr'&& <button type='button' className='button' onClick={()=>sortRegMeds()}>Sort</button>}
@@ -84,11 +75,10 @@ const Form = () => {
           </YesNoRadio> 
           <YesNoRadio    name='hasAcuteMeds'   value={hasAcuteMeds}  label={<p className='bold underline'>Acute Medicines </p>} >
             <TextArea    name='acuteMeds'      value={acuteMeds}/>
-            <span className='form-row format '><p 
-            style={{cursor:'pointer'}}
-            className={ `radio-btn ${acuteFormat==='scr'&&'green-toggle'}`} onClick={formatAcuteSCR}>Copy from SCR</p><p 
-            style={{cursor:'pointer'}}
-            className={ `radio-btn ${acuteFormat==='freetype'&&'green-toggle'}`} onClick={formatAcuteFreetype}>Freetype</p></span>
+            <span className='form-row format '>
+              <GenericRadio property={acuteFormat} value='scr'      onClick={formatAcuteSCR} >Copy from SCR </GenericRadio>
+              <GenericRadio property={acuteFormat} value='freetype' onClick={formatAcuteFreetype} >Freetype</GenericRadio>
+              </span>
 
             {acuteMeds &&acuteFormat==='scr' && <button type='button'className='button' onClick={()=>sortAcuteMeds()}>Sort</button>}
 
@@ -160,10 +150,10 @@ const Form = () => {
           {
           <Fragment >
   
-              <RadioLabel label={<p className='bold underline'>Pharmaceutical Needs Assessment</p>}>
-                <Radio       name='isMca'                  value='dosetteBox'       title={'Medication compliance aid(e.g. dosette box)'} property={isMca} />
-                <Radio       name='isMca'                  value='originalBoxes'    title={'Original Boxes '}                             property={isMca} />
-                <Radio       name='isMca'                  value='both'             title={'Both '}                                       property={isMca} />
+              <RadioLabel className={'format flex-col'} label={<p className='bold underline'>Pharmaceutical Needs Assessment</p>}>
+                <CustomRadio       name='isMca'                  value='dosetteBox'       title={'Medication compliance aid(e.g. dosette box)'} property={isMca} />
+                <CustomRadio       name='isMca'                  value='originalBoxes'    title={'Original Boxes '}                             property={isMca} />
+                <CustomRadio       name='isMca'                  value='both'             title={'Both '}                                       property={isMca} />
               </RadioLabel>
               <YesNoRadio    name='isDms'                  value={isDms}            label={<p className='bold underline'>Does this patient meet the <span className='bold'>discharge medicines service(dms)</span> referral criteria?</p>} >
                     <YesNoRadio 
@@ -176,7 +166,7 @@ const Form = () => {
                   <TextInput name='chemistNo'              value={chemistNo}           title='Contact number'/>
                   <TextInput name='odsCode'                value={odsCode}             title='ODS Code'/>
                   <TextInput name='nhsMail'                value={nhsMail}             title='NHS Email'/>
-                  <FormDate      name='lastSupplyDate'         value={lastSupplyDate}      title='Date of last supply'/>
+                  <FormDate  name='lastSupplyDate'         value={lastSupplyDate}      title='Date of last supply'/>
               </YesNoRadio>
               <YesNoRadio    name='commsIssues'            value={commsIssues}         label={<p>Communication concerns (e.g.visual/hearing/language)</p>} >
                   <TextArea  name='commsIssuesComments'    value={commsIssuesComments} placeholder='Specify'/>
@@ -201,50 +191,50 @@ const Form = () => {
                       <TextInput name='warfarinRange'           value={warfarinRange}              title='Target Range' />
                       <TextInput name='warfarinDose'            value={warfarinDose}               title='Dose' />
                       <TextInput name='warfarinDuration'        value={warfarinDuration}           title='Duration' />
-                      <FormDate      name='warfarinLastAppt'        value={warfarinLastAppt}           title='Last appointment Date' />
+                      <FormDate  name='warfarinLastAppt'        value={warfarinLastAppt}           title='Last appointment Date' />
                       <TextInput name='warfarinINR'             value={warfarinINR}                title='Last INR Result'/>
                       <TextInput name='warfarinClinic'          value={warfarinClinic}             title='Name of anticoagulation clinic/provider'/>
                       <TextInput name='warfarinClinicContactNo' value={warfarinClinicContactNo}    title='Contact number of provider'/>
                       <TextInput name='warfarinClinicEmail'     value={warfarinClinicEmail}        title='Email of provider'/>
-                      <FormDate      name='warfarinNextAppt'        value={warfarinNextAppt}           title='Date of next appointment' />
+                      <FormDate  name='warfarinNextAppt'        value={warfarinNextAppt}           title='Date of next appointment' />
               </YesNoRadio>
 
 
               <YesNoRadio         name='hasOpioidReplacement'   value={hasOpioidReplacement}      label={<p className='bold underline'>Methadone/Buprenorphine</p>}>
-                      <RadioLabel label={<p >If normally on methadone/buprenorphine please provide the following details</p>}>
-                        <Radio    name='opioid'                 value='methadone'                 title={'Methadone'}     property={opioid} />
-                        <Radio    name='opioid'                 value='buprenorphine'             title={'Buprenorphine'} property={opioid} />
+                      <RadioLabel className={'format'} label={<p >If normally on methadone/buprenorphine please provide the following details</p>}>
+                        <CustomRadio    name='opioid'                 value='methadone'                 title={'Methadone'}     property={opioid} />
+                        <CustomRadio    name='opioid'                 value='buprenorphine'             title={'Buprenorphine'} property={opioid} />
                       </RadioLabel>
                       <TextInput  name='opioidDose'             value={opioidDose}                title={'Dose'}/>
                       {opioid&& 
-                      <FormDate       name='lastOpioidSupply'       value={lastOpioidSupply}          title={`last supply of ${opioid}`}/>}
-                      <TextInput  name='opioidChemistNameAndNo' value={opioidChemistNameAndNo}    title={'Dose'}/>
+                      <FormDate   name='lastOpioidSupply'       value={lastOpioidSupply}          title={`last supply of ${opioid}`}/>}
+                      <TextInput  name='opioidChemistNameAndNo' value={opioidChemistNameAndNo}    title={'Chemist name and number'}/>
                       <TextInput  name='dals'                   value={dals}                      title={'Details of drug advisory service'}/>
                       <TextInput  name='dalsContactNo'          value={dalsContactNo}             title={'Contact No (Grove/Enable/other)'}/>
                       <TextInput  name='keyWorkerName'          value={keyWorkerName}             title={'Key worker name'}/>
                       <a href="https://my.northmid.nhs.uk/download.cfm?ver=12635" target="_blank">Please refer to methadone guideline</a>
               </YesNoRadio>
               
-              <RadioLabel label={<p className='bold underline left '>Medicines for discharge</p>} col={true}>
-                      <Radio      name='medsSupply'             value='ownSupply' property={medsSupply} title={'Has own supply at home, supply new and changed medicines only'}   />
-                      <Radio      name='medsSupply'             value='topUp'     property={medsSupply} title={'Has own supply at home but needs the following medicines only (please list)'}   />
-                      {medsSupply==='topUp'&&
-                      <TextInput  name='topUpMeds'              value={topUpMeds} placeholder='Specify'/>     
-                      }
-                      <Radio      name='medsSupply'             value='supplyAll'  property={medsSupply} title={'Supply all medicines'}    />
+              <RadioLabel className={'format'} label={<p className='bold underline left '>Medicines for discharge</p>} col={true}>
+                      <CustomRadio      name='medsSupply'             value='ownSupply' property={medsSupply} title={'Has own supply at home, supply new and changed medicines only'}   />
+                      <CustomRadio      name='medsSupply'             value='topUp'     property={medsSupply} title={'Has own supply at home but needs the following medicines only (please list)'}   />
+                      <CustomRadio      name='medsSupply'             value='supplyAll'  property={medsSupply} title={'Supply all medicines'}    />
             
               </RadioLabel>
+                      {medsSupply==='topUp'&&
+                      <TextInput  name='topUpMeds'                    value={topUpMeds} title='Specify'       placeholder='Specify'/>     
+                      }
 
-              <RadioLabel label={<p className='bold underline'>Discharge Plan </p>}>
-                      <Radio      name='dischargePlan'          value='ownHome'         property={dischargePlan} title={'Own Home'}   />
-                      <Radio      name='dischargePlan'          value='nursingHome'     property={dischargePlan} title={'Nursing Home'}   />
+              <RadioLabel className={'format flex-col'} label={<p className='bold underline'>Discharge Plan </p>}>
+                      <CustomRadio     name='dischargePlan'          value='ownHome'         property={dischargePlan} title={'Own Home'}   />
+                      <CustomRadio      name='dischargePlan'          value='nursingHome'     property={dischargePlan} title={'Nursing Home'}   />
                       
-                      <Radio      name='dischargePlan'          value='notKnown'        property={dischargePlan} title={'Not known on Admission'}    />
-                      <Radio      name='dischargePlan'          value='other'           property={dischargePlan} title={'Other Please Specify'}    />
-                      {dischargePlan==='other'&&
-                      <TextInput  name='dischargeDestination'   value={dischargeDestination} title={'Destination: '} />}
+                      <CustomRadio      name='dischargePlan'          value='notKnown'        property={dischargePlan} title={'Not known on Admission'}    />
+                      <CustomRadio     name='dischargePlan'          value='other'           property={dischargePlan} title={'Other Please Specify'}    />
 
               </RadioLabel>
+                      {dischargePlan==='other'&&
+                      <TextInput  name='dischargeDestination'   value={dischargeDestination} title={'Destination: '} />}
               
 
           </Fragment>

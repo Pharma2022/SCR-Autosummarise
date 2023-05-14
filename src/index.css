@@ -63,7 +63,12 @@ textarea{
   overflow: none;
   border-radius: 0.5rem;
 }
-
+.radio-btn>p{
+  text-align: left;
+}
+.radio-btn >input[type=radio]{
+  appearance: none;
+}
 .checked{
   color: whitesmoke;
   font-weight: 800;
@@ -106,7 +111,7 @@ max-width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  border: 0.3px solid darkgray;
   margin: auto;
   align-self: center;
   overflow: none;

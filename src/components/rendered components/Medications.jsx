@@ -11,6 +11,7 @@ const Medications = () => {
 
   return (
     <div>
+      
         <p className='bold underline'>Allergies:</p>
         <p>Allergies: {hasAllergy? allergies.split('\n'):"NKDA"}</p>
         <p className='bold underline'>Regular Mediation</p> 

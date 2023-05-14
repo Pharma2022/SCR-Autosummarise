@@ -10,17 +10,27 @@ const RadioLabel=({label,children,col,className})=>(
 
 )
 
-const Radio=({name,title,value,property})=>{
+const Radio=({name,title,value,property ,className})=>{
   const {handleChange}=useFormContext()
   return(
     
-    <label >{title}
+    <label className={className} >{title}
     <input    type="radio" name={name} value={value} onChange={handleChange} checked={property===value}  />
     </label>
 
   )
 }
 
+const CustomRadio=({name,title,value,property})=>{
+  const {handleChange}=useFormContext()
+  return(
+    
+    <label className={ `pointer radio-btn ${property===value&&'green-toggle'}`} >{title}
+    <input    type="radio" name={name} value={value} onChange={handleChange} checked={property===value}  />
+    </label>
+
+  )
+}
 
 const YesNoRadio = ({label,value,name,yes,no,children}) => {
     const {handleChange}=useFormContext()
@@ -49,4 +59,11 @@ const YesNoRadio = ({label,value,name,yes,no,children}) => {
   )
 }
 
-export {YesNoRadio,Radio,RadioLabel}
+const GenericRadio=({property,value,onClick,children})=>{
+
+return (<p  className={ `pointer radio-btn ${property===value&&'green-toggle'}`} onClick={onClick}>{children}</p>
+)
+
+}
+
+export {YesNoRadio,Radio,RadioLabel,GenericRadio,CustomRadio}

@@ -124,7 +124,75 @@ const useForm = () => {
       
 
   }
-  return { form,sortAcuteMeds,sortRegMeds
+  const checkboxesArray=[
+    {name:"SCR",
+    value:SCR,
+    title:"SCR",
+    isDate:false,
+    conditional:null    
+},
+{name:"SCRupdated",
+value:SCRupdated,
+title:"SCR last updated",
+isDate:true,
+conditional:SCR    
+},
+{name:"patient",
+value:patient,
+title:"Patient",
+isDate:false,
+conditional:null  
+},
+{name:"eTTA",
+value:eTTA,
+title:"TTA",
+isDate:false,
+conditional:null    
+},
+{name:"eTTADate",
+value:eTTADate,
+title:"TTA Date",
+isDate:true,
+conditional:eTTA   
+},
+{name:"pods",
+value:pods,
+title:"Pods",
+isDate:false,
+conditional:null    
+},
+{name:"carer",
+value:carer,
+title:"Carer",
+isDate:false,
+conditional:null    
+},
+{name:"SCR",
+value:SCR,
+title:"SCR",
+isDate:false,
+conditional:null    
+},
+{name:"nursingHome",
+value:nursingHome,
+title:"Nursing Home",
+isDate:false,
+conditional:null    
+},
+{name:"GP",
+value:GP,
+title:"GP",
+isDate:false,
+conditional:null    
+},
+{name:"chemist",
+value:chemist,
+title:"Chemist",
+isDate:false,
+conditional:null    
+},
+]
+  return {checkboxesArray, form,sortAcuteMeds,sortRegMeds
     ,handleChange,renderedAcuteMeds,renderedRegMeds,formatregFreetype,formatregSCR,acuteFormat,regFormat,formatAcuteSCR,formatAcuteFreetype}
 }
 

@@ -6,6 +6,7 @@ const Sources = () => {
     const {form:{SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist}}=useFormContext()
   return (
     <div>
+      <p className='bold underline left'>Drug History </p>
       <p className='bold underline'>Sources</p>
       <ul>
         {SCR?           <li> {'SCR'} last updated: {formatDate(SCRupdated)}     </li>:null}

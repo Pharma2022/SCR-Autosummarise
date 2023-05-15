@@ -28,7 +28,7 @@ const NavItem=({active,href,title,onClick,id})=>(
       <span className="navbar-toggler-icon"></span>
     </button>
 
-    <div className={`${!expanded &&"collapse navbar-collapse"}`} id="navbarColor01">
+    <div className={`${!expanded &&"collapse navbar-collapse"}`} >
       <ul className="navbar-nav ml-auto">
     <li className="navbar-brand"  onClick={toggleNavbar}>Clinical applications</li>
         {links.map(({active,href,title,id})=>(<NavItem active={active} href={href} title={title} key={id} onClick={()=>handleChange(id)} />))}

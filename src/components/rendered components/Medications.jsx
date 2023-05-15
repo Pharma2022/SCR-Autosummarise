@@ -13,7 +13,7 @@ const Medications = () => {
     <div>
       
         <p className='bold underline'>Allergies:</p>
-        <p>Allergies: {hasAllergy? allergies.split('\n'):"NKDA"}</p>
+        <p>Allergies: {hasAllergy? allergies.split('\n').map(allergy=>(<li key={nanoid()}>{allergy}</li>)):"NKDA"}</p>
         <p className='bold underline'>Regular Mediation</p> 
       {!hasRegMeds? <p>Nil</p>: 
       regFormat==='scr'? <p>{renderedRegMeds}</p>

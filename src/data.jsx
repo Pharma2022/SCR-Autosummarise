@@ -2,7 +2,7 @@ import { nanoid } from "nanoid"
 
 const navLinks=[
             
-{href:"https://portal.national.ncrs.nhs.uk/portal/", title:'SCR',id:nanoid(),active:true },
+{href:"https://portal2.national.ncrs.nhs.uk/summarycarerecord/patientsearch", title:'SCR',id:nanoid(),active:true },
 {href:"https://epma.nmh.nhs.uk/", title:'EPMA JAC',id:nanoid(),active:false},
 {href:"https://servicefinder.nhs.uk/login", title:'Service Finder',id:nanoid(),active:false},
 {href:"https://connect.careflowapp.com/", title:'Careflow Connect',id:nanoid(),active:false},

@@ -90,7 +90,7 @@ const Form = () => {
             <TextArea    name='otcMeds'        value={otcMeds}/>
           </YesNoRadio> 
           <YesNoRadio    name='smokes'         value={smokes}        label={<p className='bold underline'>Smoking Status</p>} >
-            <NumberInput name='cigNum'         value={""||cigNum}    title='Number of cigarettes smoked per day' />
+            <TextInput name='cigNum'         value={""||cigNum}    title='Number of cigarettes smoked per day' />
             <YesNoRadio  name='smokingAdvice'  value={smokingAdvice} label='Smoking cessation advice given' >
               <TextArea  name='smokingAdviceComments' value={smokingAdviceComments} placeholder={'Specify'}/>
             </YesNoRadio>

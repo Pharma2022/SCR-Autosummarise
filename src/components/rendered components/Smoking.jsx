@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { useFormContext } from '../../context/formContext'
+import Title from '../Title'
 
 const Smoking = () => {
 
@@ -8,7 +9,7 @@ const {form:{smokes,cigNum,smokingAdvice,smokingAdviceComments,nrtConsent,prefer
 
   return (
     <div>
-        <p className='bold underline'>Smoking Status</p>  
+        <Title>Smoking Status</Title>  
         {<p>Smoker? {smokes? "Yes":"No"}</p>}
         {smokes &&
         <Fragment>

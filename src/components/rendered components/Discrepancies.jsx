@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { useFormContext } from '../../context/formContext'
 import { nanoid } from 'nanoid'
+import Title from '../Title'
 
 const Discrepancies = () => {
 const {form:{  discrepancies,newMeds,withheld,changed,pharmReferral,pharmReferralComments,}}= useFormContext()
@@ -13,22 +14,22 @@ const returnUl=(element)=>(!element?<p>Nil</p>: element.split('\n').length?
     <div >
         {
         <Fragment>
-        <p className='bold underline'>List of Discrepancies:</p>
+        <Title>List of Discrepancies:</Title>
 
-        <p className='bold underline'>New</p>
+        <Title>New</Title>
        
         {returnUl(newMeds)}
 
-        <p className='bold underline'>Changed</p>
+        <Title>Changed</Title>
        {returnUl(changed)}
-        <p className='bold underline'>Withheld</p>
+        <Title>Withheld</Title>
 
         {returnUl(withheld)}
         </Fragment> 
         
         }
         { <Fragment>
-        <p className='bold underline'>Referral to Pharmacist/Technician</p>
+        <Title>Referral to Pharmacist/Technician</Title>
         {pharmReferral? <p>{pharmReferralComments}</p>:<p>Nil</p>}
         </Fragment>}
     </div>

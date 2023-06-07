@@ -1,17 +1,19 @@
 import React from 'react'
 import { useFormContext } from '../../context/formContext'
 import { formatDate } from '../../helper'
+import Title from '../Title'
 
 const CompletedBy = () => {
 
 const {form:{completedBy,reconciledBy,transcribedBy,dateCompleted,timeCompleted,medReviewRequired,medReviewComments}}=useFormContext()
   return (
     <div>
-          <p>  <span className='bold '>Completed by :</span>   {completedBy}</p>
-          <p>  <span className='bold '>Reconciled by :</span>   {reconciledBy}</p>
-          <p>  <span className='bold '>Transcribed by :</span>   {transcribedBy}</p>
-          <p>  <span className='bold '>Completed at :</span>   {dateCompleted&& formatDate(dateCompleted)} {timeCompleted}</p>
-          <p className='bold underline red'> Medication review required {medReviewRequired?"Yes":"No" }</p>
+          <Title notUnderlined={true} >  <span >Completed by :</span>   {completedBy}</Title>
+          <Title notUnderlined={true} >  <span >Reconciled by :</span>   {reconciledBy}</Title>
+          <Title notUnderlined={true}>  <span >Transcribed by :</span>   {transcribedBy}</Title>
+          <p >  <span >Completed at :</span>   {dateCompleted&& formatDate(dateCompleted)} {timeCompleted}</p>
+          <Title className='red' > MEDICAL TEAM TO REVIEW </Title>
+          <p>{medReviewRequired?"Yes":"No" }</p>
           <p> {medReviewRequired&& medReviewComments}   </p>
 
 

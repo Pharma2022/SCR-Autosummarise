@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+font-family: Arial,  sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -27,6 +27,8 @@ html{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: all ease-in 0.3s;
 
 }
 
@@ -225,4 +227,14 @@ form{
   button {
     background-color: #f9f9f9;
   }
+}
+
+mb-0{
+  margin-bottom: 0;
+}
+
+.radio-btn:hover, button:hover{
+  transform: scale(1.03);
+  text-decoration: underline;
+  opacity: 0.8;
 }

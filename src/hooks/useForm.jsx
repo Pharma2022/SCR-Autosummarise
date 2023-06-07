@@ -167,12 +167,6 @@ title:"Carer",
 isDate:false,
 conditional:null    
 },
-{name:"SCR",
-value:SCR,
-title:"SCR",
-isDate:false,
-conditional:null    
-},
 {name:"nursingHome",
 value:nursingHome,
 title:"Nursing Home",

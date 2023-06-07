@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react'
 import { useFormContext } from '../../context/formContext'
+import Title from '../Title'
 
 const Steroids = () => {
 
     const {form:{hasSteroids,longTermHigh,longTermHighIndication,hasIcs,ics,hasEmergencySteroids,emergencySteroids,}}=useFormContext()
   return (
     <div>
-        <p className='bold underline'>NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete</p>
+        <Title>NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete</Title>
         <p>{hasSteroids? "History of Steroid Therapy": "No Steroid Therapy"} </p>
         {hasSteroids&& 
         <Fragment>

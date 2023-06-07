@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { useFormContext } from '../../context/formContext'
 import { formatDate } from '../../helper'
+import Title from '../Title'
 
 const Warfarin = () => {
     const {form:{hasWarfarin,warfarinIndication,warfarinRange,warfarinDose,warfarinDuration,warfarinLastAppt
@@ -8,7 +9,8 @@ const Warfarin = () => {
 
   return (
     <div>
-     <p className='bold underline'>Anticoagulation:{hasWarfarin?"Yes":"Nil"}</p>
+     <Title>Anticoagulation:</Title>
+     <p>{hasWarfarin?"Yes":"Nil"}</p>
      {hasWarfarin&&
      <Fragment>
      <p>Indication: {warfarinIndication}</p>
@@ -21,11 +23,8 @@ const Warfarin = () => {
      <p>Contact number of provider : {warfarinClinicContactNo}</p>
      <p>Email Address : {warfarinClinicEmail} </p>
      <p>Next appt : {formatDate(warfarinNextAppt)}</p> 
-
-
      </Fragment>
      }   
-
     </div>
   )
 }

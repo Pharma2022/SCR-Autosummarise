@@ -1,14 +1,15 @@
 import React from 'react'
 import { useFormContext } from '../../context/formContext'
 import { formatDate } from '../../helper'
+import Title from '../Title'
 
 const Sources = () => {
     const {form:{SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist}}=useFormContext()
   return (
     <div>
-      <p className='bold underline left'>Drug History </p>
-      <p className='bold underline'>Sources</p>
-      <ul>
+      <Title>Drug History </Title>
+      <Title>Sources</Title>
+      <ul >
         {SCR?           <li> {'SCR'} last updated: {formatDate(SCRupdated)}     </li>:null}
         {patient?       <li> {'Patient'}                                        </li>:null}
         {eTTA?          <li> {'TTA'} {formatDate(eTTADate)}                     </li>:null}

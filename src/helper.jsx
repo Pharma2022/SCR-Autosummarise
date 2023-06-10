@@ -85,3 +85,15 @@ export function sortRepeats(str) {
 
   
   export {formatDate}
+
+
+  export function sortContactsByName(contacts) {
+    // Create a copy of the original array to avoid modifying the original
+    const sortedContacts = [...contacts];
+  
+    // Sort the contacts array by the name property
+    sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
+  
+    return sortedContacts;
+  }
+  

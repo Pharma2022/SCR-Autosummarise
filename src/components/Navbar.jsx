@@ -1,12 +1,15 @@
 import React,{useState} from 'react'
 import { nanoid } from 'nanoid'
 import { navLinks } from '../data'
+import { Link, NavLink } from 'react-router-dom'
 const NavItem=({active,href,title,onClick,id})=>(      
 <li className={`nav-item ${active?"active":""}`} >
 <a className="nav-link" onClick={onClick} href={href} id={id} target="_blank">{title}</a>
 </li>)
 
-
+const NavItemLink=({to,children})=><li className='nav-item'>
+  <Link className='nav-link' to={to}>{children}</Link>
+</li>
 
  const Navbar = () => {
 
@@ -32,7 +35,9 @@ const NavItem=({active,href,title,onClick,id})=>(
       <ul className="navbar-nav ml-auto">
     <li className="navbar-brand"  onClick={toggleNavbar}>Clinical applications</li>
         {links.map(({active,href,title,id})=>(<NavItem active={active} href={href} title={title} key={id} onClick={()=>handleChange(id)} />))}
- 
+
+      <NavItemLink to={'/'}>Home</NavItemLink>
+      <NavItemLink to={'/title'}>Contacts</NavItemLink>
       </ul>
     </div>
   </nav>

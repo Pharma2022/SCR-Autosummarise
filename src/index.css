@@ -37,8 +37,14 @@
     padding: 0;
     outline: none;
   }
-  
+  h1,h2{
+    
+    padding-block:1.75rem 1rem;
+  }
   .pointer{cursor: pointer;}
+  .pointer-no-underline{
+    cursor: pointer;
+  }
   .pointer:hover{
     text-decoration: underline;
     opacity: .8
@@ -248,11 +254,12 @@
     justify-content: center;
   
     max-width: 600px;
-    gap:1rem;
+    
   }
   .contact-item{
     border: 2px solid lightgray;
     padding: 1rem;
+    margin-bottom: 1rem;
   
   }
   .name{
@@ -269,5 +276,24 @@
   .copy-button{
     padding: 0.3em .8em;
     border: none;
+    border-radius: 6px;
+    background-color: #213547;
+    color: whitesmoke;
   
+  }
+
+ 
+  .accordion-icon{
+    background-color: darkgray;
+    padding: 1rem;
+    /* color: red; */
+    
+  }
+  @media(max-width:600px){
+    .nav-item{
+      text-align: left;
+      padding-inline-start: 1rem;
+      max-width: 75%;
+    }
+    
   }

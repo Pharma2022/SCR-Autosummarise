@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 
-const CopyButton=({copy,isCopied,text})=>(  <span className='flex-row copy-container'>
-<p onClick={copy} className="email pointer">
-  {text}
+const CopyButton=({copy,isCopied,text,type})=>(  <span className='flex-row copy-container'>
+<p onClick={copy} className="email ">
+ <span className='bold type pointer-no-underline'>{type}: </span> <span className='pointer'>{text}</span>
 </p>
 <button className='copy-button' onClick={copy} disabled={isCopied}>
 {isCopied ? 'Copied!' : 'Copy'}
@@ -30,8 +30,8 @@ const ContactItem = ({ name, email, tel }) => {
   return (
     <div className='contact-item'>
       <p className='name bold'>{name}</p>
-        <CopyButton copy={copyEmail} isCopied={isEmailCopied} text={email} />
-        <CopyButton copy={copyTel}   isCopied={isTelCopied}   text={tel} />
+        <CopyButton type={'email'} copy={copyEmail} isCopied={isEmailCopied} text={email} />
+        <CopyButton type={'tel'} copy={copyTel}   isCopied={isTelCopied}   text={tel} />
   
     </div>
   );

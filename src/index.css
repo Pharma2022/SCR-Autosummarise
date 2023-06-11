@@ -279,8 +279,9 @@
     border-radius: 6px;
     background-color: #213547;
     color: whitesmoke;
-  
+    margin-left: 1rem;
   }
+  
 
  
   .accordion-icon{

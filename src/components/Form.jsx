@@ -6,8 +6,6 @@ import FormDate from './form elements/Date'
 import Time from './form elements/Time'
 import {YesNoRadio,Radio,RadioLabel, GenericRadio, CustomRadio} from './form elements/Radios'
 import TextArea from './form elements/TextArea'
-import NumberInput from './form elements/NumberInput'
-import Label from './form elements/Label'
 import CheckBox from './form elements/CheckBox'
 // import { checkboxesArray } from '../formData'
 import { nanoid } from 'nanoid'
@@ -35,7 +33,7 @@ const Form = () => {
     }
 
   return (
-    <form className='container flex-col' onSubmit={handleSubmit} >
+    <form className='form container flex-col' onSubmit={handleSubmit} >
       
          <TextInput className={'flex-row'}     name='completedBy'     value={completedBy}    title='Completed by'/>
          <TextInput className={'flex-row'}     name='reconciledBy'    value={reconciledBy}   title='Reconciled by'/>
@@ -48,7 +46,7 @@ const Form = () => {
               <TextArea  name='medReviewComments' value={medReviewComments}/>
          </YesNoRadio>
          <p className='bold underline left'>Drug History </p>
-          <p className='bold underline'> Sources</p>
+          <p className='bold underline mb-0'> Sources</p>
 
         <div className='checkboxes wrap'>
           {checkboxesArray.map(({name,value,title,isDate,conditional})=> isDate? (conditional&&

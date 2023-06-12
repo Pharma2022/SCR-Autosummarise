@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-import AccordionItem from './contact components/AccordionItem';
+import ContactItemProperty from './ContactItemProperty';
 
 
 
@@ -21,8 +21,8 @@ const ContactItem = ({ name, email, tel }) => {
   return (
     <div className='contact-item'>
       <p className='name bold'>{name}</p>
-        <AccordionItem type={'email'} copy={copyEmail} isCopied={isEmailCopied} text={email} />
-        <AccordionItem type={'tel'} copy={copyTel}   isCopied={isTelCopied}   text={tel} />
+        <ContactItemProperty type={'email'} copy={copyEmail} isCopied={isEmailCopied} text={email} />
+        <ContactItemProperty type={'tel'} copy={copyTel}   isCopied={isTelCopied}   text={tel} />
   
     </div>
   );

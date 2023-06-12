@@ -11,7 +11,7 @@ const NavItem = ({ active, href, title, onClick, id }) => (
   </li>
 );
 
-const NavItemLink = ({ to, children }) => (
+export const NavItemLink = ({ to, children }) => (
   <li className="nav-item">
     <Link className="nav-link" to={to}>
       {children}
@@ -55,7 +55,7 @@ const Navbar = () => {
             <NavItem active={active} href={href} title={title} key={id} onClick={() => handleChange(id)} />
           ))}
           <NavItemLink to={'/'}>Home</NavItemLink>
-          <NavItemLink to={'/title'}>Contacts</NavItemLink>
+          <NavItemLink to={'/contact'}>Contacts</NavItemLink>
         </ul>
       </div>
     </nav>

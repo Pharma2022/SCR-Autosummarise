@@ -54,9 +54,7 @@
   }
   
   
-  #renderedForm{
-    margin-top: 4em;
-  }
+ 
   .green-toggle{
     background-color: #00bc9c;;
     color: whitesmoke;
@@ -173,9 +171,7 @@
     outline: 4px auto -webkit-focus-ring-color;
   }
   
-  form{
-    margin-block-start: 2rem;
-  }
+  
   .flex-col{
     display: flex;
     flex-direction: column;
@@ -295,6 +291,25 @@
     outline: none;
     border: 1px solid thistle;
     margin-block-end: 1rem;
+  }
+  .secondary-nav{
+
+    padding-block: 3rem 2rem;
+    justify-content: flex-start;
+    margin-bottom: -4rem;
+ 
+  }
+  .secondary-nav>*{
+    padding: 0.3rem 0.8rem;
+    border: none;
+
+  }
+  .form,#renderedForm{
+
+    margin-block-start: 4rem;
+  }
+  #renderedForm{
+    padding-block-start: .25rem;
   }
   @media(max-width:600px){
     .nav-item{

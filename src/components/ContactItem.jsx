@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 
 
-const CopyButton=({copy,isCopied,text,type})=>(  <span className='flex-row copy-container'>
-<p onClick={copy} className="email ">
- <span className='bold type pointer-no-underline'>{type}: </span> <span className='pointer'>{text}</span>
-{isCopied&& <span className='copy-button'>Copied!
-</span>}
-</p>
-
-</span>)
-
+import AccordionItem from './contact components/AccordionItem';
 
 
 
@@ -29,8 +21,8 @@ const ContactItem = ({ name, email, tel }) => {
   return (
     <div className='contact-item'>
       <p className='name bold'>{name}</p>
-        <CopyButton type={'email'} copy={copyEmail} isCopied={isEmailCopied} text={email} />
-        <CopyButton type={'tel'} copy={copyTel}   isCopied={isTelCopied}   text={tel} />
+        <AccordionItem type={'email'} copy={copyEmail} isCopied={isEmailCopied} text={email} />
+        <AccordionItem type={'tel'} copy={copyTel}   isCopied={isTelCopied}   text={tel} />
   
     </div>
   );

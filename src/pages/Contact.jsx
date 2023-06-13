@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { anticoag, chemistsList, medicinesInfo } from '../data';
+import { chemistsList } from '../data/chemists';
+import { anticoag } from '../data/anticoag';
+import { medicinesInfo } from '../data/MI';
 import Accordion from '../components/contact components/Accordion';
+import { gpList } from '../data/GP';
+
+
+
 const Contact = () => {
 
 
@@ -23,7 +29,11 @@ const Contact = () => {
         title='Community Pharmacies'
         arr={chemistsList}
       />
-
+      <Accordion
+        placeholder={'Search GPs'}
+        title='GP Practices'
+        arr={gpList}
+      />
     </div>
   );
 };

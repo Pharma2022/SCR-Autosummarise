@@ -96,4 +96,8 @@ export function sortRepeats(str) {
   
     return sortedContacts;
   }
-  
+  export const arrayModifyForAccordion=arr=>arr.map(item=>{
+    const {name,postCode,tel,email}=item
+    return {name:`${name} ${postCode}`,tel,email }
+
+  })

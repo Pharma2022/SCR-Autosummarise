@@ -46,6 +46,15 @@ const Form = () => {
               <TextArea  name='medReviewComments' value={medReviewComments}/>
          </YesNoRadio>
          <p className='bold underline left'>Drug History </p>
+
+         {/* <FormAccordion title={'Sources'}>
+            <div className='checkboxes wrap'>
+              {checkboxesArray.map(({name,value,title,isDate,conditional})=> isDate? (conditional&&
+              <FormDate key={nanoid()} name={name} value={value}  title={title} />) :(
+              <CheckBox key={nanoid()} name={name} value={value} title={title} />))}
+            </div>
+
+         </FormAccordion> */}
           <p className='bold underline mb-0'> Sources</p>
 
         <div className='checkboxes wrap'>

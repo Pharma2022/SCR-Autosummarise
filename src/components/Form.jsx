@@ -9,6 +9,7 @@ import TextArea from './form elements/TextArea'
 import CheckBox from './form elements/CheckBox'
 // import { checkboxesArray } from '../formData'
 import { nanoid } from 'nanoid'
+import FormAccordion from './form elements/FormAccordion'
 
 
 const Form = () => {
@@ -47,27 +48,26 @@ const Form = () => {
          </YesNoRadio>
          <p className='bold underline left'>Drug History </p>
 
-         {/* <FormAccordion title={'Sources'}>
+         <FormAccordion title={'Sources'}>
             <div className='checkboxes wrap'>
               {checkboxesArray.map(({name,value,title,isDate,conditional})=> isDate? (conditional&&
               <FormDate key={nanoid()} name={name} value={value}  title={title} />) :(
               <CheckBox key={nanoid()} name={name} value={value} title={title} />))}
             </div>
 
-         </FormAccordion> */}
-          <p className='bold underline mb-0'> Sources</p>
-
-        <div className='checkboxes wrap'>
-          {checkboxesArray.map(({name,value,title,isDate,conditional})=> isDate? (conditional&&
-           <FormDate key={nanoid()} name={name} value={value}  title={title} />) :(
-           <CheckBox key={nanoid()} name={name} value={value} title={title} />))}
-        </div>
+         </FormAccordion>
+     
 
 
-         
+         <FormAccordion title={'Allergies'}>
+
           <YesNoRadio    name='hasAllergy'     value={hasAllergy}    label={<p className='bold underline'>Patient drug allergies/sensitivities and reactions</p>} no='NKDA'  >
             <TextArea    name='allergies'      value={allergies}/>
           </YesNoRadio>
+         </FormAccordion>
+
+         <FormAccordion title={'Regular Medicines'}>
+
           <YesNoRadio    name='hasRegMeds'     value={hasRegMeds}    label={<p className='bold underline'>Regular Medicines </p>} >
             <span className='form-row format '>
             <GenericRadio property={regFormat} value='scr'      onClick={formatregSCR} >Copy from SCR </GenericRadio>
@@ -80,6 +80,8 @@ const Form = () => {
 
 
           </YesNoRadio> 
+         </FormAccordion>
+         <FormAccordion title={'Acute Medicines'}>
           <YesNoRadio    name='hasAcuteMeds'   value={hasAcuteMeds}  label={<p className='bold underline'>Acute Medicines </p>} >
             <TextArea    name='acuteMeds'      value={acuteMeds}/>
             <span className='form-row format '>
@@ -93,9 +95,14 @@ const Form = () => {
 
 
           </YesNoRadio>
+          </FormAccordion>
+          <FormAccordion title={'OTC Medicines'}>
           <YesNoRadio    name='hasOtcMeds'     value={hasOtcMeds}    label={<p className='bold underline'>OTC Medicines</p>} >
             <TextArea    name='otcMeds'        value={otcMeds}/>
           </YesNoRadio> 
+          </FormAccordion>
+
+          <FormAccordion title={'Smoking'}>
           <YesNoRadio    name='smokes'         value={smokes}        label={<p className='bold underline'>Smoking Status</p>} >
             <TextInput name='cigNum'         value={""||cigNum}    title='Number of cigarettes smoked per day' />
             <YesNoRadio  name='smokingAdvice'  value={smokingAdvice} label='Smoking cessation advice given' >
@@ -111,8 +118,9 @@ const Form = () => {
             </YesNoRadio>
 
           </YesNoRadio>
+          </FormAccordion>
 
-
+          <FormAccordion title={'Discrepancies/Pharmacist/MMT Referral'}>
 
           <YesNoRadio name={'discrepancies'}    value={discrepancies}  label={<p className='bold underline'>Discrepancies found?</p>}>
             <p className='bold underline'>List of Discrepancies (with Reasons)</p>
@@ -124,14 +132,14 @@ const Form = () => {
             <TextArea name='withheld' value={withheld} placeholder={'Withheld'}/>
             
             </YesNoRadio>    
-     
-
-
-
           <YesNoRadio     name='pharmReferral'        value={pharmReferral}  no='N/A' label={<p className='bold underline'>Referral to Pharmacist /Pharmacy Technician</p>}>
                 <TextArea name='pharmReferralComments' value={pharmReferralComments} placeholder={'Enter details'}/>
           </YesNoRadio>
 
+          </FormAccordion>
+
+
+          <FormAccordion title={'Steroids'} defaultState={false}>
           <YesNoRadio     
                       name='hasSteroids'    value={hasSteroids}     yes='History of steroid therapy' no='No Steroid Therapy' 
                       label={<p className='bold underline'>NPSA Alert Adults at Risk of Adrenal Crisis- PHARMACIST To complete</p>}>
@@ -154,9 +162,15 @@ const Form = () => {
                       <TextArea name='emergencySteroids' value={emergencySteroids} placeholder={'Specify'}/>
               </YesNoRadio>
           </YesNoRadio>
+          </FormAccordion>
+     
+
+
+
+
           {
           <Fragment >
-  
+              <FormAccordion title={'Pharmaceutical Needs'}>
               <RadioLabel className={'format flex-col'} label={<p className='bold underline'>Pharmaceutical Needs Assessment</p>}>
                 <CustomRadio       name='isMca'                  value='dosetteBox'       title={'Medication compliance aid(e.g. dosette box)'} property={isMca} />
                 <CustomRadio       name='isMca'                  value='originalBoxes'    title={'Original Boxes '}                             property={isMca} />
@@ -193,6 +207,8 @@ const Form = () => {
                   Bigword access code: ***
                 </p>
                 </Fragment>}
+                </FormAccordion>
+                <FormAccordion title={'Anticoagulation'} defaultState={false}>
               <YesNoRadio        name='hasWarfarin'             value={hasWarfarin}                label={<p className='bold underline'>Anticoagulation</p>}>
                       <TextInput name='warfarinIndication'      value={warfarinIndication}         title='Indication' />
                       <TextInput name='warfarinRange'           value={warfarinRange}              title='Target Range' />
@@ -205,8 +221,8 @@ const Form = () => {
                       <TextInput name='warfarinClinicEmail'     value={warfarinClinicEmail}        title='Email of provider'/>
                       <FormDate  name='warfarinNextAppt'        value={warfarinNextAppt}           title='Date of next appointment' />
               </YesNoRadio>
-
-
+              </FormAccordion>
+                <FormAccordion title={'Methadone/Buprenorphine'} defaultState={false}>
               <YesNoRadio         name='hasOpioidReplacement'   value={hasOpioidReplacement}      label={<p className='bold underline'>Methadone/Buprenorphine</p>}>
                       <RadioLabel className={'format'} label={<p >If normally on methadone/buprenorphine please provide the following details</p>}>
                         <CustomRadio    name='opioid'                 value='methadone'                 title={'Methadone'}     property={opioid} />
@@ -221,7 +237,9 @@ const Form = () => {
                       <TextInput  name='keyWorkerName'          value={keyWorkerName}             title={'Key worker name'}/>
                       <a href="https://my.northmid.nhs.uk/download.cfm?ver=12635" target="_blank">Please refer to methadone guideline</a>
               </YesNoRadio>
-              
+              </FormAccordion>
+
+              <FormAccordion title={'Discharge'}>
               <RadioLabel className={'format'} label={<p className='bold underline left '>Medicines for discharge</p>} col={true}>
                       <CustomRadio      name='medsSupply'             value='ownSupply' property={medsSupply} title={'Has own supply at home, supply new and changed medicines only'}   />
                       <CustomRadio      name='medsSupply'             value='topUp'     property={medsSupply} title={'Has own supply at home but needs the following medicines only (please list)'}   />
@@ -243,7 +261,7 @@ const Form = () => {
                       {dischargePlan==='other'&&
                       <TextInput  name='dischargeDestination'   value={dischargeDestination} title={'Destination: '} />}
               
-
+              </FormAccordion>
           </Fragment>
 
           }

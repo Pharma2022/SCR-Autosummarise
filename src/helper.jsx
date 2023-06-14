@@ -87,17 +87,9 @@ export function sortRepeats(str) {
   export {formatDate}
 
 
-  export function sortContactsByName(contacts) {
-    // Create a copy of the original array to avoid modifying the original
-    const sortedContacts = [...contacts];
+  export const sortContactsByName=(contacts)=> contacts.sort(({name:a}, {name:b}) => a.localeCompare(b));
   
-    // Sort the contacts array by the name property
-    sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
-  
-    return sortedContacts;
-  }
-  export const arrayModifyForAccordion=arr=>arr.map(item=>{
-    const {name,postCode,tel,email}=item
-    return {name:`${name} ${postCode}`,tel,email }
 
-  })
+  export const arrayModifyForAccordion=arr=>arr.map(({name,postCode,tel,email})=>({name:`${name} ${postCode}`,tel,email })
+
+  )

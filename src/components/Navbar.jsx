@@ -52,7 +52,7 @@ const Navbar = () => {
             Clinical applications
           </li>
           {links.map(({ active, href, title, id }) => (
-            <NavItem active={active} href={href} title={title} key={id} onClick={() => handleChange(id)} />
+            <NavItem active={active} href={href} title={title} key={nanoid()} onClick={() => handleChange(id)} />
           ))}
           <NavItemLink to={'/'}>Home</NavItemLink>
           <NavItemLink to={'/contact'}>Contacts</NavItemLink>

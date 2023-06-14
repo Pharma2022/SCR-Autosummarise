@@ -1,6 +1,6 @@
 import { arrayModifyForAccordion } from "../helper";
 
-export const gp  = [
+export const enfield  = [
     {
       name: "Abernethy House",
       email: "enquiries.abernethyhouse@nhs.net",
@@ -254,4 +254,194 @@ export const gp  = [
         tel: "0208 920 2025"
       }
   ];
-  export const gpList=arrayModifyForAccordion(gp)
+
+  const islington = [
+    {
+      name: "Amwell Group Practice",
+      email: "amwellgrouppractice@nhs.net",
+      postCode: "WC1X 0GB",
+      tel: "0207 812 3699"
+    },
+    {
+      name: "Archway Medical Centre",
+      email: "apct.admin@nhs.net",
+      postCode: "N19 3NU",
+      tel: "0207 561 5850"
+    },
+    {
+      name: "Barnsbury Medical Practice",
+      email: "Barnsbury.MedicalPractice@nhs.net",
+      postCode: "N1 0AL",
+      tel: "0207 700 9707"
+    },
+    {
+      name: "City Road Medical Centre",
+      email: "cityroadmedicalcentre@nhs.net",
+      postCode: "EC1V 2QH",
+      tel: "020 3474 6989"
+    },
+    {
+      name: "Clerkenwell Medical Practice",
+      email: "clerkenwellmp@nhs.net",
+      postCode: "EC1R 0LP",
+      tel: "0207 520 0430"
+    },
+    {
+      name: "Junction Medical Practice",
+      email: "ko.practice@nhs.net",
+      postCode: "N19 5EW",
+      tel: "0207 281 4767"
+    },
+    {
+      name: "Elizabeth Avenue Group Practice",
+      email: "elizabeth.avenuegp@nhs.net",
+      postCode: "N1 3BS",
+      tel: "0207 359 7448"
+    },
+    {
+      name: "Goodinge Group Practice",
+      email: "thegoodinge@nhs.net",
+      postCode: "N7 9EW",
+      tel: "0207 619 6699"
+    },
+    {
+      name: "Hanley Primary Care Centre",
+      email: "hanley.road@nhs.net",
+      postCode: "N4 3DU",
+      tel: "0203 874 5690"
+    },
+    {
+      name: "Highbury Grange Medical Practice",
+      email: "Highburygrange.medicalpractice@nhs.net",
+      postCode: "N5 2QB",
+      tel: "0207 619 6699"
+    },
+    {
+      name: "Islington Central Medical Centre",
+      email: "islingtoncentralmc@nhs.net",
+      postCode: "N1 1SW",
+      tel: "0207 704 7522"
+    },
+    {
+      name: "Killick Street Health Centre",
+      email: "killickstreetadmin@nhs.net",
+      postCode: "N1 9RH",
+      tel: "020 7427 2730"
+    },
+    {
+      name: "Mildmay Medical Practice",
+      email: "admin.mildmay@nhs.net",
+      postCode: "N16 9NF",
+      tel: "0207 923 1144"
+    },
+    {
+      name: "Mitchison Road Surgery",
+      email: "patientdata.mitchisonrd@nhs.net",
+      postCode: "N1 3NG",
+      tel: "0207 359 5652"
+    },
+    {
+      name: "New North Health Centre",
+      email: "newnorth.health@nhs.net",
+      postCode: "N1 7AA",
+      tel: "0207 288 9012"
+    },
+    {
+      name: "Partnership Primary Care Centre",
+      email: "ppcc@nhs.net",
+      postCode: "N7 0SL",
+      tel: "020 8150 6319"
+    },
+    {
+      name: "Pine Street Medical Practice",
+      email: "psmp@nhs.net",
+      postCode: "EC1R 0LP",
+      tel: "020 7713 1871"
+    },
+    {
+      name: "Ritchie Street Group Practice",
+      email: "ritchiestreetgrouppractice@nhs.net",
+      postCode: "N1 0DG",
+      tel: "020 7837 8819"
+    },
+    {
+      name: "Roman Way Medical Centre",
+      email: "romanwaymedicalcentre@nhs.net",
+      postCode: "N1 1SW",
+      tel: "020 3474 6522"
+    },
+    {
+      name: "Sobell Medical Centre",
+      email: "sobellmedcentre.admin@nhs.net",
+      postCode: "N7 6NE",
+      tel: "07508 164176"
+    },
+    {
+      name: "St John's Way Medical Centre",
+      email: "admin.sjwmc@nhs.net",
+      postCode: "N19 3RN",
+      tel: "020 7561 7265"
+    },
+    {
+      name: "St Peter's Street Medical Practice",
+      email: "stpeters.docman@nhs.net",
+      postCode: "N1 8JG",
+      tel: "020 7704 8347"
+    },
+    {
+      name: "Stroud Green Medical Clinic",
+      email: "stroudgreenreception@nhs.net",
+      postCode: "N4 3PZ",
+      tel: "020 7272 0854"
+    },
+    {
+      name: "The Andover Medical Centre",
+      email: "andover.medical-centre@nhs.net",
+      postCode: "N7 7QZ",
+      tel: "020 7281 1472"
+    },
+    {
+      name: "The Beaumont Practice",
+      email: "thebeaumont@nhs.net",
+      postCode: "N19 3YU",
+      tel: "07505 520 706"
+    },
+    {
+      name: "The Junction Medical Practice",
+      email: "junction.medicalpractice@nhs.net",
+      postCode: "N19 5EW",
+      tel: "0207 281 4767"
+    },
+    {
+      name: "The Medical Centre",
+      email: "edo.rec@nhs.net",
+      postCode: "N7 8DD",
+      tel: "07939 103 175"
+    },
+    {
+      name: "The Miller Practice",
+      email: "miller.practice@nhs.net",
+      postCode: "N5 2ET",
+      tel: "020 7226 3214"
+    },
+    {
+      name: "The Northern Medical Centre",
+      email: "northern.medicalcentre@nhs.net",
+      postCode: "N7 7JJ",
+      tel: "020 3474 5725"
+    },
+    {
+      name: "The Rise Group Practice",
+      email: "rise.group@nhs.net",
+      postCode: "N19 3YU",
+      tel: "020 7272 0627"
+    },
+    {
+      name: "The Village Practice",
+      email: "thevillagepractice@nhs.net",
+      postCode: "N7 7JJ",
+      tel: "020 7619 9422"
+    }
+  ];
+  
+  export const gpList=arrayModifyForAccordion([...enfield,...islington])

@@ -15,12 +15,12 @@ export const anticoag = [
       tel: "020 7288 3516"
     },
     {
-      name: "Barnet Hospital- Royal Free NHS Foundation Trust EN5 3DJ  ",
+      name: "Barnet Hospital- Royal Free NHS Foundation Trust EN5 3DJ",
       email: "bcf-tr.dawnac@nhs.net",
       tel: "020 8216 4710"
     },
     {
-      name: "Royal Free Hospital NHS Foundation Trust London NW3 2QG · ",
+      name: "Royal Free Hospital NHS Foundation Trust London NW3 2QG",
       email: "rf.acc@nhs.net",
       tel: "020 3758 2018 / 020 7794 0500 x 36932"
     }

@@ -20,7 +20,7 @@ export const medicinesInfo= [
       tel: "020 7288 5758"
     },
     {
-      name: "Barts Health NHS Trust Whipps Cross University Hospital  E11 1NR ·",
+      name: "Barts Health NHS Trust Whipps Cross University Hospital  E11 1NR",
       email: "bartshealth.pharmacymedicinesinformation@nhs.net",
       tel: "0208 535 6971"
     },

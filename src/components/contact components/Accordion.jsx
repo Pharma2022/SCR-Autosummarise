@@ -8,7 +8,7 @@ const Accordion = ({placeholder,title,arr }) => {
       
       return (<> 
                   <h3 onClick={toggleShown} className="flex-row pointer accordion-icon">
-                     {title} Contacts <FontAwesomeIcon icon={shown ? faChevronUp : faChevronDown} />
+                     {title}<FontAwesomeIcon icon={shown ? faChevronUp : faChevronDown} />
                   </h3>
                   {shown&&(
                   <>

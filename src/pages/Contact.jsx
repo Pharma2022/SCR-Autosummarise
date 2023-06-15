@@ -16,12 +16,12 @@ const Contact = () => {
 
       <Accordion
         placeholder={'Search Medicines Information Centers'}
-        title='Medicines Information'
+        title='Medicines Information Services'
         arr={medicinesInfo}
       />
       <Accordion
         placeholder={'Search Anticoagulation Centers'}
-        title='Anticoagulation Clinic'
+        title='Anticoagulation Clinics'
         arr={anticoag}
       />
       <Accordion
@@ -30,7 +30,7 @@ const Contact = () => {
         arr={chemistsList}
       />
       <Accordion
-        placeholder={'Search GPs'}
+        placeholder={'Search GP Surgeries'}
         title='GP Practices'
         arr={gpList}
       />

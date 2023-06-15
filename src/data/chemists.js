@@ -10,13 +10,13 @@ export const chemists=[
       name: "Alderman’s",
       postCode: "N13 4PN",
       tel: "020 8886 5511",
-      email: "nhspharmacy.palmersgreen.aldermanspharmacyFAQ59@nhs.net"
+      email: "pharmacy.faq59@nhs.net"
     },
     {
       name: "Allcures",
       postCode: "N15 3PB",
       tel: "020 8888 3040",
-      email: "nhspharmacy.tottenham.allcurespharmacyFQC60@nhs.net"
+      email: "pharmacy.fqc60@nhs.net"
     },
     {
       name: "Alpha",
@@ -52,7 +52,7 @@ export const chemists=[
       name: "Benjamin",
       postCode: "E4 8LP",
       tel: "020 8529 8263",
-      email: "nhspharmacy.benjaminpharmacy.chingfordFLR34@nhs.net"
+      email: "pharmacy.flr34@nhs.net"
     },
     {
       name: "Boots Edmonton",
@@ -64,7 +64,7 @@ export const chemists=[
       name: "Boots Enfield Retail Park",
       postCode: "EN1 1TH",
       tel: "020 8367 7019",
-      email: "susan.baxter7@nhs.net"
+      email: "pharmacy.fwx81@nhs.net"
     },
     {
       name: "Boots Cheshunt",
@@ -82,7 +82,7 @@ export const chemists=[
       name: "Capricorn",
       postCode: "EN2 7HW",
       tel: "020 8367 3939",
-      email: "nhspharmacy.enfield.capricornpharmacyFHG73@nhs.net"
+      email: "pharmacy.fhg73@nhs.net"
     },
     {
       name: "Cheshunt Pharmacy",
@@ -103,10 +103,10 @@ export const chemists=[
       email: "coopers.pharmacy@nhs.net"
     },
     {
-      name: "Coyle’s Waltham Cross",
+      name: "Coyle Chemist Waltham Cross",
       postCode: "EN8 7AP",
       tel: "01992 626 644",
-      email: "edward.ofosu-manu@nhs.net"
+      email: "pharmacy.fry60@nhs.net"
     },
     {
       name: "Crescent Express",
@@ -142,19 +142,19 @@ export const chemists=[
       name: "Elgon",
       postCode: "EN3 4DN",
       tel: "020 8805 5298",
-      email: "manan.banker@nhs.net"
+      email: "pharmacy.fry60@nhs.net"
     },
     {
       name: "Estons",
       postCode: "N18 2TW",
       tel: "020 8807 1467",
-      email: "jignesh.patel18@nhs.net"
+      email: "pharmacy.fry60@nhs.net"
     },
     {
       name: "Forest",
       postCode: "N9 7HD",
       tel: "020 8805 1034",
-      email: "roza.zobedey@nhs.net"
+      email: "pharmacy.fw034@nhs.net"
     },
     {
       name: "GF Porter",
@@ -166,7 +166,7 @@ export const chemists=[
       name: "Good Health",
       postCode: "N15 5AA",
       tel: "020 3302 8060",
-      email: "rahul.patel10@nhs.net"
+      email: "pharmacy.fj342@nhs.net"
     },
     {
       name: "Grace",
@@ -184,19 +184,19 @@ export const chemists=[
       name: "Green Lanes",
       postCode: "N21 2SA",
       tel: "020 8350 8350",
-      email: "bhupesh.patel1@nhs.net"
+      email: "pharmacy.fj342@nhs.net"
     },
     {
       name: "Green Light/DP Marks",
       postCode: "N4 1JX",
       tel: "020 8800 1638",
-      email: "nhspharmacy.greenlanes.greenlightpharmacyFNJ72@nhs.net"
+      email: "pharmacy.fnj72@nhs.net"
     },
     {
-      name: "Green’s",
+      name: "Green’s Pharmacy",
       postCode: "N13 6JU",
       tel: "020 8888 3915",
-      email: "bina.shah3@nhs.net"
+      email: "pharmacy.fej40@nhs.net"
     },
     {
       name: "Hayward Enfield",
@@ -208,7 +208,7 @@ export const chemists=[
       name: "Healthfare",
       postCode: "EN1 1YY",
       tel: "020 8367 5456",
-      email: "halil.karahan@nhs.net"
+      email: "pharmacy.fej40@nhs.net"
     },
     {
       name: "HomeUPath",
@@ -235,10 +235,10 @@ export const chemists=[
       email: "pharmacy.ftc400@nhs.net"
     },
     {
-      name: "Lloyds Edmonton",
+      name: "Edmonton Pharmacy ",
       postCode: "N9 0TY",
       tel: "020 8807 1412",
-      email: "nhspharmacy.edmontongreen.lloydspharmacyFKW41@nhs.net"
+      email: "pharmacy.frm78@nhs.net"
     },
     {
       name: "Lloyds Enfield Baker St",
@@ -274,19 +274,19 @@ export const chemists=[
       name: "Morrison’s Chingford",
       postCode: "E4 8SN",
       tel: "020 8527 1331",
-      email: "nhspharmacy.chingford.morrisonspharmacyFXN94@nhs.net"
+      email: "pharmacy.fxn94@nhs.net"
     },
     {
-      name: "Niti",
+      name: "Niti Pharmacy",
       postCode: "EN8 7BY",
       tel: "01992 717821",
-      email: "bipan.sharma@nhs.net"
+      email: "pharmacy.fek46@nhs.net"
     },
     {
       name: "NR Patel",
       postCode: "N13 4SE",
       tel: "020 8888 2332",
-      email: "nhspharmacy.bowesroad.NRPatelchemistFPQ44@nhs.net"
+      email: "pharmacy.fpq44@nhs.net"
     },
     {
       name: "Palmer’s",
@@ -304,7 +304,7 @@ export const chemists=[
       name: "Parkview",
       postCode: "N14 4XA",
       tel: "020 8363 4712",
-      email: "pinky.patel@nhs.net"
+      email: "pharmacy.fj506@nhs.net"
     },
     {
       name: "Pharmacy2U",
@@ -317,7 +317,7 @@ export const chemists=[
       name: "Pharmacy Express",
       postCode: "N22 8HH",
       tel: "020 8888 1669",
-      email: "pharmacyexpress.pharmacy@nhs.net"
+      email: "pharmacy.fkf23@nhs.net"
     },
     {
       name: "Pharmocare 65a",
@@ -341,31 +341,31 @@ export const chemists=[
       name: "Pharmocare 753",
       postCode: "N17 8AH",
       tel: "020 8808 1974",
-      email: "bravo.rawat@nhs.net"
+      email: "pharmacy.fvx18@nhs.net"
     },
     {
-      name: "Phillips",
+      name: "Phillip's Chemist",
       postCode: "N17 6XF",
       tel: "020 8808 4040",
-      email: "nhspharmacy.tottenham.phillipschemistSM689@nhs.net"
+      email: "pharmacy.fm689@nhs.net"
     },
     {
       name: "Reena",
       postCode: "N22 8JW",
       tel: "020 8888 1729",
-      email: "alex.varnava@nhs.net (put FAO Wood Green in subject)"
+      email: "pharmacy.fjw79@nhs.net"
     },
     {
       name: "Reid’s",
       postCode: "N9 9JJ",
       tel: "020 8360 2653",
-      email: "nhspharmacy.edmontonlondon.reidspharmacyFNA19@nhs.net"
+      email: "pharmacy.fna19@nhs.net"
     },
     {
       name: "Ronchetti",
       postCode: "EN3 6UP",
       tel: "01992 650 302",
-      email: "nhspharmacy.enfield.hyperchemltdtaroncheFHW08@nhs.net"
+      email: "pharmacy.frk66@nhs.net"
     },
     {
       name: "Safedale Clapton",
@@ -377,13 +377,13 @@ export const chemists=[
       name: "Safedale Seven Sisters",
       postCode: "N15 6EP",
       tel: "020 8800 4876",
-      email: "cemma.west@nhs.net"
+      email: "pharmacy.fr778@nhs.net"
     },
     {
       name: "Savemore",
       postCode: "N22 6SA",
       tel: "020 8888 5360",
-      email: "ankur.shah@nhs.net"
+      email: "pharmacy.flv30@nhs.net"
     },
     {
       name: "Scott’s",
@@ -395,19 +395,19 @@ export const chemists=[
       name: "Skot - Alphega",
       postCode: "N9 9BA",
       tel: "020 8803 3221",
-      email: "nhspharmacy.edmonton.skotdispensingchemistsFJA11@nhs.net"
+      email: "pharmacy.fja11@nhs.net"
     },
     {
       name: "SIA",
       postCode: "N8 0DU",
       tel: "020 8340 1440",
-      email: "shivali.patel5@nhs.net"
+      email: "pharmacy.fkp44@nhs.net"
     },
     {
       name: "Somerset Gardens",
       postCode: "N17 8NW",
       tel: "020 8801 3539",
-      email: "rahul.gajree1@nhs.net"
+      email: "pharmacy.ff252@nhs.net"
     },
     {
       name: "Superdrug Edmonton",
@@ -419,25 +419,25 @@ export const chemists=[
       name: "Swan",
       postCode: "EN8 8NQ",
       tel: "01992 365 842",
-      email: "hitin.patel@nhs.net"
+      email: "pharmacy.fcp33@nhs.net"
     },
     {
       name: "Tesco Cheshunt",
       postCode: "EN8 0TA",
       tel: "020 3801 3012",
-      email: "nhspharmacy.cheshunt.tescoFCA02@nhs.net"
+      email: "pharmacy.flc02@nhs.net"
     },
     {
       name: "Tesco Ponder’s End",
       postCode: "EN3 4DP",
       tel: "0345 677 9546",
-      email: "nhspharmacy.288highs.tescoin-sfvw31@nhs.net"
+      email: "pharmacy.fvw31@nhs.net"
     },
     {
       name: "Viren’s",
       postCode: "N9 8AG",
       tel: "020 8804 1932",
-      email: "nhspharmacy.edmonton.virenschemistFE164@nhs.net"
+      email: "pharmacy.fe164@nhs.net"
     },
     {
       name: "Walker’s",
@@ -449,49 +449,44 @@ export const chemists=[
       name: "Warwick",
       postCode: "N11 2EU",
       tel: "020 8888 2437",
-      email: "lai.teow@nhs.net"
+      email: "pharmacy.fcw41@nhs.net"
     },
     {
       name: "Well Chingford Hatch Lane",
       postCode: "E4 6LQ",
       tel: "020 8524 4310",
-      email: "nhspharmacy.chingford.wellpharmacyFFF08@nhs.net"
+      email: "pharmacy.fff08@nhs.net"
     },
+   
     {
-      name: "Well Enfield 644",
-      postCode: "EN3 6NA",
-      tel: "01992 764 476",
-      email: "nhspharmacy.enfield.wellpharmacyFYA05@nhs.net"
-    },
-    {
-      name: "Well",
-      postCode: "EN3 5 JL",
+      name: "Well 255-257 Hertford Rd",
+      postCode: "EN3 5JL",
       tel: "02088055821",
       email: "pharmacy.fgr74@nhs.net"
     },
     {
-      name: "Well",
+      name: "Well 14 Kendal Parade, Silver Street",
       postCode: "N18 1ND",
       tel: "020 8807 5946",
       email: "pharmacy.flr96@nhs.net"
     },
     {
-      name: "Well Enfield Silver Street",
+      name: "Well Enfield 66 Silver Street",
       postCode: "EN1 3EP",
       tel: "020 8363 0823",
-      email: "nhspharmacy.enfield.wellpharmacyFNY07@nhs.net"
+      email: "pharmacy.fny07@nhs.net"
     },
     {
       name: "Well Enfield 417 Hertford Rd",
       postCode: "EN3 5PT",
       tel: "020 8805 4154",
-      email: "nhspharmacy.enfield.wellpharmacyFXF01@nhs.net"
+      email: "pharmacy.fxf01@nhs.net"
     },
     {
       name: "Whitakers",
       postCode: "EN1 3EW",
       tel: "020 8364 6129",
-      email: "vasant.patel@nhs.net"
+      email: "pharmacy.fpe95@nhs.net"
     },
     {
       name: "VMS",
@@ -503,7 +498,7 @@ export const chemists=[
       name: "Zara",
       postCode: "EN3 4DR",
       tel: "020 8804 2567",
-      email: "nhspharmacy.pondersend.zarapharmacyFH734@nhs.net"
+      email: "pharmacy.fh734@nhs.net"
     }
   ]
 

@@ -21,8 +21,8 @@ const ContactItem = ({ name, email, tel }) => {
   return (
     <div className='contact-item'>
       <p className='name bold'>{name}</p>
-        <ContactItemProperty type={'email'} copy={copyEmail} isCopied={isEmailCopied} text={email} />
-        <ContactItemProperty type={'tel'} copy={copyTel}   isCopied={isTelCopied}   text={tel} />
+       {email? <ContactItemProperty type={'email'} copy={copyEmail} isCopied={isEmailCopied} text={email} />:null}
+       {tel? <ContactItemProperty type={'tel'} copy={copyTel}   isCopied={isTelCopied}   text={tel} /> :null}
   
     </div>
   );

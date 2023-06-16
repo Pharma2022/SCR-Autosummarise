@@ -35,8 +35,14 @@ export const medicinesInfo= [
       tel: "0208 909 5410"
     },
     {
-      name: "Great Ormond Street Hospital",
+      name: "Great Ormond Street Hospital WC1N 3JH",
       email: "medicines.information@gosh.nhs.uk",
       tel: "0207 829 8608"
-    }
+    },
+    {
+      name:'Moorfields Eye Hospital NHS Trust EC1V 1PD',
+      tel:'0207 566 2369',
+      email:""
+    },
+  
   ]

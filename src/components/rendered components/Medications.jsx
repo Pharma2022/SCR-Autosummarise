@@ -7,25 +7,25 @@ const Medications = () => {
 
 }=useFormContext()
 
-
+const sortAndSplit =(arr)=>    arr.length? arr.length===1? <p>{arr[0]}</p> :arr.split('\n').sort((a, b) => a.localeCompare(b)).map(item=><li key={nanoid()}>{item}</li>):null
+ 
 
   return (
     <div>
       
-        <Title>Allergies:</Title>
-        <p>{hasAllergy? allergies.split('\n').map(allergy=>(<li key={nanoid()}>{allergy}</li>)):"NKDA"}</p>
+      
         <Title>Regular Mediation</Title> 
       {!hasRegMeds? <p>Nil</p>: 
       regFormat==='scr'? <p>{renderedRegMeds}</p>
       : regFormat==='freetype'&& 
 
     <OrderedList>
-      {renderedRegMeds.length?renderedRegMeds.split('\n').map(item=><li key={nanoid()}>{item}</li>):null}
+      {sortAndSplit(renderedRegMeds)}
     </OrderedList>
 
       }
 
-
+      
 
         <Title>Acute Medication</Title>  
         {!hasAcuteMeds? <p>Nil</p>: 
@@ -33,12 +33,16 @@ const Medications = () => {
       : acuteFormat==='freetype'&& 
 
     <OrderedList>
-      {renderedAcuteMeds.length?renderedAcuteMeds.split('\n').map(item=><li key={nanoid()}>{item}</li>):null}
+      {sortAndSplit(renderedAcuteMeds)}
     </OrderedList>
 
       }
-        <Title>OTC Medication</Title>    
-        <p>{hasOtcMeds? otcMeds.split('\n').length?          otcMeds.split('\n').map(item=><li key={nanoid()}>{item}</li>) :otcMeds:'Nil'}</p>
+        <Title>OTC Medication</Title>   
+        {!hasOtcMeds? <p>Nil</p>:null}
+        <OrderedList>
+       {sortAndSplit(otcMeds)}
+          
+        </OrderedList> 
   
     </div>
   )

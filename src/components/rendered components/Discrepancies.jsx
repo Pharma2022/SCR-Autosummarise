@@ -2,13 +2,12 @@ import React, { Fragment } from 'react'
 import { useFormContext } from '../../context/formContext'
 import { nanoid } from 'nanoid'
 import Title from '../Title'
-
+import { singleOrDouble } from '../../helper'
 const Discrepancies = () => {
-const {form:{  discrepancies,newMeds,withheld,changed,pharmReferral,pharmReferralComments,}}= useFormContext()
+const {form:{  newMeds,withheld,changed,pharmReferral,pharmReferralComments,}}= useFormContext()
 
-const returnUl=(element)=>(!element?<p>Nil</p>: element.split('\n').length?
-<ul>{ element.split('\n').map(item=>(<li key={nanoid()}>{item}</li>))  }</ul>:
-<p>{element}</p>)
+
+const returnUl=(element)=>(!element?<p>Nil</p>: singleOrDouble(element) )
 
   return (
     <div >
@@ -30,7 +29,7 @@ const returnUl=(element)=>(!element?<p>Nil</p>: element.split('\n').length?
         }
         { <Fragment>
         <Title>Referral to Pharmacist/Technician</Title>
-        {pharmReferral? <p>{pharmReferralComments}</p>:<p>Nil</p>}
+        {pharmReferral? singleOrDouble(pharmReferralComments):<p>Nil</p>}
         </Fragment>}
     </div>
   )

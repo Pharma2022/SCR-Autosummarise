@@ -3,8 +3,10 @@ import { useFormContext } from '../../context/formContext'
 import { formatDate } from '../../helper'
 import Title from '../Title'
 
-const Sources = () => {
-    const {form:{SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist}}=useFormContext()
+const Sources = ({children}) => {
+    const {form:{SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist,nok,nokName,nokContact,
+                  
+    }}=useFormContext()
   return (
     <div>
       <Title>Drug History </Title>
@@ -18,6 +20,8 @@ const Sources = () => {
         {nursingHome?   <li> {'Nursing Home'}                                   </li>:null}
         {GP?            <li> {'GP'}                                             </li>:null}
         {chemist?       <li> {'Community Pharmacy'}                             </li>:null}
+        {nok?           <li> {`${nokName} ${nokContact}` }                      </li>:null}
+        {children}
       </ul>
       </div>
   )

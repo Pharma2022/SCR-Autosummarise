@@ -10,14 +10,18 @@ import CheckBox from './form elements/CheckBox'
 // import { checkboxesArray } from '../formData'
 import { nanoid } from 'nanoid'
 import FormAccordion from './form elements/FormAccordion'
+import CompletedBy from './form components/CompletedBy'
+import Sources from './form components/Sources'
+import Allergies from './form components/Allergies'
+import Smoking from './form components/Smoking'
+import DischargePlan from './form components/DischargePlan'
 
 
 const Form = () => {
-    const { form, checkboxesArray, sortAcuteMeds,sortRegMeds,formatregFreetype,formatregSCR,acuteFormat,regFormat,formatAcuteSCR,formatAcuteFreetype }=useFormContext()
+    const { form, sortAcuteMeds,sortRegMeds,formatregFreetype,formatregSCR,acuteFormat,regFormat,formatAcuteSCR,formatAcuteFreetype }=useFormContext()
         const {
-          completedBy,reconciledBy,transcribedBy,dateCompleted,timeCompleted,medReviewRequired,medReviewComments,
-          SCR,SCRupdated,patient,eTTA,eTTADate,pods,carer,nursingHome,GP,chemist, 
-          hasAllergy,allergies,hasRegMeds,regMeds,hasAcuteMeds,acuteMeds,hasOtcMeds,otcMeds,
+          medReviewRequired,medReviewComments,
+          hasRegMeds,regMeds,hasAcuteMeds,acuteMeds,hasOtcMeds,otcMeds,
           smokes,cigNum,smokingAdvice,smokingAdviceComments,nrtConsent,preferredNrt,smokingReferral, 
           discrepancies, newMeds,changed,withheld,pharmReferral,pharmReferralComments,
           hasSteroids,longTermHigh,longTermHighIndication,hasIcs,ics,hasEmergencySteroids,emergencySteroids,
@@ -28,43 +32,24 @@ const Form = () => {
           medsSupply,topUpMeds,dischargePlan,dischargeDestination
           
               }=form
-    const handleSubmit=(e)=>{
-        e.preventDefault()
-        console.log(form)
-    }
-
-  return (
-    <form className='form container flex-col' onSubmit={handleSubmit} >
+   
+              return (
+                <form className='form container flex-col'  >
       
-         <TextInput className={'flex-row'}     name='completedBy'     value={completedBy}    title='Completed by'/>
-         <TextInput className={'flex-row'}     name='reconciledBy'    value={reconciledBy}   title='Reconciled by'/>
-         <TextInput className={'flex-row'}     name='transcribedBy'   value={transcribedBy}  title='Transcribed by'/>
-         <FormDate  className={'flex-row'}     name='dateCompleted'   value={dateCompleted}  title='Date Completed'/>
-         <Time      className={'flex-row'}     name='timeCompleted'   value={timeCompleted}  title='Time Completed'/>   
-         
+         <CompletedBy/>
+      
          <YesNoRadio     label={<p className='bold underline red'>Medical Team to Review</p>} no=' Nothing'
                          name='medReviewRequired' value={medReviewRequired}   >
               <TextArea  name='medReviewComments' value={medReviewComments}/>
          </YesNoRadio>
          <p className='bold underline left'>Drug History </p>
 
-         <FormAccordion title={'Sources'}>
-            <div className='checkboxes wrap'>
-              {checkboxesArray.map(({name,value,title,isDate,conditional})=> isDate? (conditional&&
-              <FormDate key={nanoid()} name={name} value={value}  title={title} />) :(
-              <CheckBox key={nanoid()} name={name} value={value} title={title} />))}
-            </div>
+          <Allergies/>
+    
+          <Sources/>
 
-         </FormAccordion>
      
-
-
-         <FormAccordion title={'Allergies'}>
-
-          <YesNoRadio    name='hasAllergy'     value={hasAllergy}    label={<p className='bold underline'>Patient drug allergies/sensitivities and reactions</p>} no='NKDA'  >
-            <TextArea    name='allergies'      value={allergies}/>
-          </YesNoRadio>
-         </FormAccordion>
+       
 
          <FormAccordion title={'Regular Medicines'}>
 
@@ -102,23 +87,7 @@ const Form = () => {
           </YesNoRadio> 
           </FormAccordion>
 
-          <FormAccordion title={'Smoking'}>
-          <YesNoRadio    name='smokes'         value={smokes}        label={<p className='bold underline'>Smoking Status</p>} >
-            <TextInput name='cigNum'         value={""||cigNum}    title='Number of cigarettes smoked per day' />
-            <YesNoRadio  name='smokingAdvice'  value={smokingAdvice} label='Smoking cessation advice given' >
-              <TextArea  name='smokingAdviceComments' value={smokingAdviceComments} placeholder={'Specify'}/>
-            </YesNoRadio>
-            <YesNoRadio  name='nrtConsent'     value={nrtConsent}    label='Patient Consents to nicotine replacement therapy prescription'>
-              <TextArea  name='preferredNrt'   value={preferredNrt}/>
-            </YesNoRadio>
-            <YesNoRadio name='smokingReferral' value={smokingReferral} label='Patient referred to smoking cessation service'>
-                      <a href='https://my.northmid.nhs.uk/tackling-tobacco-dependency' target='_blank' >
-                        To refer to the smoking cessation service, please click here
-                      </a>
-            </YesNoRadio>
-
-          </YesNoRadio>
-          </FormAccordion>
+         <Smoking/>
 
           <FormAccordion title={'Discrepancies/Pharmacist/MMT Referral'}>
 
@@ -250,16 +219,7 @@ const Form = () => {
                       <TextInput  name='topUpMeds'                    value={topUpMeds} title='Specify'       placeholder='Specify'/>     
                       }
 
-              <RadioLabel className={'format flex-col'} label={<p className='bold underline'>Discharge Plan </p>}>
-                      <CustomRadio     name='dischargePlan'          value='ownHome'         property={dischargePlan} title={'Own Home'}   />
-                      <CustomRadio      name='dischargePlan'          value='nursingHome'     property={dischargePlan} title={'Nursing Home'}   />
-                      
-                      <CustomRadio      name='dischargePlan'          value='notKnown'        property={dischargePlan} title={'Not known on Admission'}    />
-                      <CustomRadio     name='dischargePlan'          value='other'           property={dischargePlan} title={'Other Please Specify'}    />
-
-              </RadioLabel>
-                      {dischargePlan==='other'&&
-                      <TextInput  name='dischargeDestination'   value={dischargeDestination} title={'Destination: '} />}
+             <DischargePlan/>
               
               </FormAccordion>
           </Fragment>

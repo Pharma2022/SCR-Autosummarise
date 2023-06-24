@@ -93,3 +93,7 @@ export function sortRepeats(str) {
   export const arrayModifyForAccordion=arr=>arr.map(({name,postCode,tel,email})=>({name:`${name} ${postCode}`,tel,email })
 
   )
+
+  export const singleOrDouble= element=>element.split('\n').length?
+  <ul>{ element.split('\n').map(item=>(<li key={nanoid()}>{item}</li>))  }</ul>:
+  <p>{element}</p>

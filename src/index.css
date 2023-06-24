@@ -206,16 +206,27 @@
     align-content: flex-start;
     
   }
-  
-  
+  .keep-all{
+    word-break: keep-all;
+  }
+  .break-all{
+    word-break: break-all;
+  }
   .underline{
     text-decoration: underline;
+  }
+  .no-underline-bold{
+    text-decoration: none;
+    font-weight: normal;
   }
   .bold{
     font-weight: 700;
   }
   .red{
     color: rgba(255, 0, 0, 0.737);
+  }
+  .small{
+    font-size: 0.7rem;
   }
   .left{
     text-align: left;
@@ -236,6 +247,9 @@
     }
   }
   
+  mt-0{
+    margin-top: 0;
+  }
   mb-0{
     margin-bottom: 0;
   }
@@ -305,11 +319,11 @@
     border: none;
 
   }
-  .form,#renderedForm{
+  .form,.render{
 
     margin-block-start: 4rem;
   }
-  #renderedForm{
+  .render{
     padding-block-start: .25rem;
   }
   @media(max-width:600px){

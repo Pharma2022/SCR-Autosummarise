@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { navLinks } from '../data';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NavItem = ({ active, href, title, onClick, id }) => (
   <li className={`nav-item ${active ? 'active' : ''}`}>
@@ -55,6 +55,7 @@ const Navbar = () => {
             <NavItem active={active} href={href} title={title} key={nanoid()} onClick={() => handleChange(id)} />
           ))}
           <NavItemLink to={'/'}>Home</NavItemLink>
+          {/* <NavItemLink to={'/clozapine'}>Clozapine</NavItemLink> */}
           <NavItemLink to={'/contact'}>Contacts</NavItemLink>
         </ul>
       </div>

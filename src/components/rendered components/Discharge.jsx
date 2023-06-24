@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { useFormContext } from '../../context/formContext'
 import Title from '../Title'
+import DischargePlan from './DischargePlan'
 
 const Discharge = () => {
 
@@ -17,14 +18,8 @@ const {medsSupply,topUpMeds,dischargePlan,dischargeDestination}=form
             :'Supply All'}
             </p >
 
-        <Title>Discharge plan </Title>
-
-        <p>Expected to be discharged to:
-        {dischargePlan==='nursingHome'?' Nursing Home'
-        :dischargePlan==='notKnown'?' Not known on admission'
-        :dischargePlan==='other'?  dischargeDestination
-        : ' Own home' }  </p>     
-
+        
+        <DischargePlan/>
     </Fragment>
   )
 }

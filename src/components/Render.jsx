@@ -11,6 +11,7 @@ import Discharge from './rendered components/Discharge'
 import Methadone from './rendered components/Methadone'
 import { useFormContext } from '../context/formContext'
 import { formatDate } from '../helper'
+import Allergies from './rendered components/Allergies'
 const Render = () => {
   const {checkboxesArray, form,sortAcuteMeds,sortRegMeds
     ,handleChange,renderedAcuteMeds,renderedRegMeds,formatregFreetype,formatregSCR,acuteFormat,regFormat,formatAcuteSCR,formatAcuteFreetype}=useFormContext()
@@ -172,6 +173,7 @@ const Render = () => {
  
          <div className='render container flex-col' id='renderedForm'>
         <CompletedBy/>
+        <Allergies/>
         <Sources/>
         <Medications/>
         <Smoking/>

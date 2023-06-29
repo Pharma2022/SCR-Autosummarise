@@ -15,46 +15,35 @@ import {
   deleteDoc,
 } from 'firebase/firestore';
 
+const useFirestoreCollection = (collectionName) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const q = query(collection(db, collectionName));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let myArr = [];
+      querySnapshot.forEach((doc) => {
+        myArr.push({ ...doc.data(), id: doc.id });
+      });
+
+      // Sort the data alphabetically
+      myArr.sort((a, b) => a.name.localeCompare(b.name));
+
+      setData(myArr);
+    });
+
+    return () => unsubscribe();
+  }, [collectionName]);
+
+  return data;
+};
+
+
 const Contact = () => {
 
 
-  const [GPs, setGPs] = useState([])
-  const [Pharmacies,setPharmacies]=useState([])
-
-  useEffect(() => {
-    const q = query(collection(db, 'gp-list'));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let myArr = [];
-      querySnapshot.forEach((doc) => {
-        myArr.push({ ...doc.data(), id: doc.id });
-      });
-
-      // Sort the todos alphabetically
-      myArr.sort((a, b) => a.name.localeCompare(b.name));
-
-
-      setGPs(myArr);
-    });
-
-    return () => unsubscribe();
-  }, [])
-  useEffect(() => {
-    const q = query(collection(db, 'chemists'));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let myArr = [];
-      querySnapshot.forEach((doc) => {
-        myArr.push({ ...doc.data(), id: doc.id });
-      });
-
-      // Sort the todos alphabetically
-      myArr.sort((a, b) => a.name.localeCompare(b.name));
-
-
-      setPharmacies(myArr);
-    });
-
-    return () => unsubscribe();
-  }, [])
+const GPs=useFirestoreCollection('gp-list')
+ const Pharmacies=useFirestoreCollection('chemists')
 
   return (
     <div className="container flex-col contact-page">

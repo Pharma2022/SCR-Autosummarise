@@ -97,3 +97,19 @@ export function sortRepeats(str) {
   export const singleOrDouble= element=>element.split('\n').length?
   <ul>{ element.split('\n').map(item=>(<li key={nanoid()}>{item}</li>))  }</ul>:
   <p>{element}</p>
+
+  export function addCommaAfterSecondToLastWord(str) {
+    // Split the string into an array of words
+    let words = str.split(' ');
+  
+    // Get the second-to-last word
+    let secondToLastWord = words[words.length - 2];
+  
+    // Add a comma after the second-to-last word
+    words[words.length - 2] = secondToLastWord + ',';
+  
+    // Join the words back into a string
+    let result = words.join(' ');
+  
+    return result;
+  }

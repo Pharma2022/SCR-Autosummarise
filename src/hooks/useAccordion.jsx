@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import { sortContactsByName } from '../helper';
+import { addCommaAfterSecondToLastWord, sortContactsByName } from '../helper';
 import ContactItem from '../components/contact components/ContactItem';
 
 const useContact = () => {
@@ -35,17 +35,29 @@ const useContact = () => {
   };
   
   const renderContacts = (contacts) => {
-    return sortContactsByName(contacts).map(({ name, tel, email, address, postcode }) => (
-      <ContactItem
-        key={nanoid()}
-        name={name}
-        tel={tel}
-        email={email.toLowerCase()}
-        address={address || 'N/A'}
-        postcode={postcode || 'N/A'}
-      />
-    ));
+    return sortContactsByName(contacts).map(({ name, tel, email, address, postcode }) => {
+      let finalAddress = address;
+  
+      if (address) {
+        const addressWords = address.split(',');
+        if (addressWords.length > 1) {
+          finalAddress = addCommaAfterSecondToLastWord(addressWords.join(' '));
+        }
+      }
+  
+      return (
+        <ContactItem
+          key={nanoid()}
+          name={name}
+          tel={tel}
+          email={email.toLowerCase()}
+          address={finalAddress || null}
+          postcode={postcode || null}
+        />
+      );
+    });
   };
+  
 
   return {
     renderContacts,

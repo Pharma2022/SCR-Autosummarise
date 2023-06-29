@@ -6,7 +6,7 @@ const ContactItemProperty=({copy,isCopied,text,type})=>(
         <p onClick={copy} 
            className="email break-all"  >
             <span className='bold type pointer-no-underline'>
-                {type}: 
+                {type}:{` `} 
             </span> 
             <span className='pointer'>
                 {text}

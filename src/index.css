@@ -271,7 +271,14 @@
     border: 2px solid lightgray;
     padding: 1rem;
     margin-bottom: 1rem;
-  
+    background-color: #f9f9f9;
+    border-radius: .5rem;
+  }
+
+  hr {
+    height: 3px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #140606cc inset;
   }
   .name{
     margin-bottom: 0;

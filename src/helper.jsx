@@ -90,7 +90,7 @@ export function sortRepeats(str) {
   export const sortContactsByName=(contacts)=> contacts.sort(({name:a}, {name:b}) => a.localeCompare(b));
   
 
-  export const arrayModifyForAccordion=arr=>arr.map(({name,postCode,tel,email})=>({name:`${name} ${postCode}`,tel,email })
+  export const arrayModifyForAccordion=arr=>arr.map(({name,postcode,tel,email})=>({name:`${name} ${postcode}`,tel,email })
 
   )
 

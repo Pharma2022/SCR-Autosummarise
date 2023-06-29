@@ -16,7 +16,7 @@ const Accordion = ({placeholder,title,arr }) => {
                         type="text" 
                         value={search} 
                         onChange={handleChange} 
-                        placeholder={placeholder} />
+                        placeholder={`${placeholder} click on email or tel to copy`} />
                     {renderContacts(filterContacts(arr,search))}
                   </>)
           }

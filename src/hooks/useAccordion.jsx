@@ -19,7 +19,7 @@ const useContact = () => {
     return contacts.filter(({ name, tel, email, postcode, address }) => {
       const lowercasedName = name.toLowerCase();
       const lowercasedTel = tel.toLowerCase();
-      const lowercasedEmail = email.toLowerCase();
+      const lowercasedEmail = (email||"").toLowerCase()
       
       const lowercasedPostcode = (postcode || '').toLowerCase();
       const lowercasedAddress = (address || '').toLowerCase();
@@ -50,7 +50,7 @@ const useContact = () => {
           key={nanoid()}
           name={name}
           tel={tel}
-          email={email.toLowerCase()}
+          email={email? email.toLowerCase():null}
           address={finalAddress || null}
           postcode={postcode || null}
         />

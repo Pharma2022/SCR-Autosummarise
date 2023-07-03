@@ -1,49 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { chemistsList } from '../data/chemists';
 import { anticoag } from '../data/anticoag';
-import { medicinesInfo } from '../data/MI';
+// import { medicinesInfo } from '../data/MI';
 import Accordion from '../components/contact components/Accordion';
 import { gpList } from '../data/GP';
 import { db } from '../firebaseConfig';
-import {
-  collection,
-  onSnapshot,
-  query,
-  updateDoc,
-  doc,
-  addDoc,
-  deleteDoc,
-} from 'firebase/firestore';
 
-const useFirestoreCollection = (collectionName) => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const q = query(collection(db, collectionName));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let myArr = [];
-      querySnapshot.forEach((doc) => {
-        myArr.push({ ...doc.data(), id: doc.id });
-      });
-
-      // Sort the data alphabetically
-      myArr.sort((a, b) => a.name.localeCompare(b.name));
-
-      setData(myArr);
-    });
-
-    return () => unsubscribe();
-  }, [collectionName]);
-
-  return data;
-};
-
+import useFirestoreCollection from '../hooks/useFirestoreCollection';
 
 const Contact = () => {
 
 
 const GPs=useFirestoreCollection('gp-list')
  const Pharmacies=useFirestoreCollection('chemists')
+ const medicinesInfo=useFirestoreCollection('medsinfo')
 
   return (
     <div className="container flex-col contact-page">

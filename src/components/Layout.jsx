@@ -6,17 +6,11 @@ import { NavItemLink } from "./Navbar";
 const Layout=()=>{
      
     return (
-        <>
+        <div className="flex-col app">
         <Navbar/>
-        {/* <nav className="secondary-nav flex-row">    
-          
-          <button><Link to={'/'}>Home</Link></button>
-          <button><Link to={'/contact'}>Contacts</Link>
-          </button>
-        </nav> */}
         <Outlet/>
    
-        </>
+        </div>
     )
 }
 export default Layout

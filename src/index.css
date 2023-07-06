@@ -6,6 +6,7 @@
     --orange--clr:#f57a00;
     --blue--primary--clr:rgb(87, 140, 185);
     --blue--secondary--clr:#5093E2;
+    --blue-tertiary--clr:#424d86;
     --blue--linked-clr:#5093E2;
     --whiteish-clr:rgba(225,234,242);
     --whiteish--butdarker--clr:rgba(226,232,240);
@@ -304,7 +305,7 @@
     padding: 1rem;
     margin-bottom: 1rem;
     color:white;
-    background-color: var(--blue--secondary--clr);
+    background-color: var(--blue-tertiary--clr);
 
     box-shadow: 0 5px 5px -5px #423b3bcc inset;
   }
